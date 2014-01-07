@@ -2,7 +2,7 @@
 
 ## Usage
 
-Run the [manage](manage.rkt) file with `racket manage.rkt` or
+Run the [manage](manage.rkt) file as `racket manage.rkt` or
 `./manage.rkt` to move everything listed in `files` and `dirs` to your
 home directory
 
