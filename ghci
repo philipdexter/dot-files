@@ -1,0 +1,19 @@
+import Control.Applicative
+import Control.Monad
+import Control.Concurrent
+import Control.Concurrent.Async
+import Control.Parallel
+
+import Data.String
+import Data.Char
+import Data.List
+import Data.Monoid
+import Control.Monad.IO.Class
+
+:set prompt "Λ: "
+
+:def pf \str -> return $ ":! pointfree \"" ++ str ++ "\""
+:def unpf \str -> return $ ":! pointful \"" ++ str ++ "\""
+:def hlint \src -> return $ ":! hlint \""++src++"\""
+:def hoogle \s -> return $ ":! hoogle --count=15 \"" ++ s ++ "\""
+:script /home/philip/.cabal/share/ghc-vis-0.7.1/ghci
