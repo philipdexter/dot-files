@@ -4,11 +4,15 @@ import Control.Concurrent
 import Control.Concurrent.Async
 import Control.Parallel
 
+import GOA
 import Data.String
 import Data.Char
 import Data.List
 import Data.Monoid
 import Control.Monad.IO.Class
+
+import qualified System.Directory as Dir
+import qualified Data.ByteString.Lazy as L
 
 :set prompt "Λ: "
 
@@ -16,4 +20,23 @@ import Control.Monad.IO.Class
 :def unpf \str -> return $ ":! pointful \"" ++ str ++ "\""
 :def hlint \src -> return $ ":! hlint \""++src++"\""
 :def hoogle \s -> return $ ":! hoogle --count=15 \"" ++ s ++ "\""
-:script /home/philip/.cabal/share/ghc-vis-0.7.1/ghci
+
+:def ghc_pkg (\l -> return $ ":! "++GHC.Paths.ghc_pkg++" "++l)
+:def browser (\l->return $ ":! chromium "++l)
+
+let doc p = return $ ":browser "++dropWhile (/='/')GHC.Paths.docdir++relative where { relative | p=="" = "/index.html" | otherwise = p }
+:def doc doc
+
+let users_guide p = doc ("/users_guide"++if null p then "/index.html" else p)
+:def users_guide users_guide
+
+setLambdabotHome . (++ "/.cabal/bin") =<< Dir.getHomeDirectory
+:def undo lambdabot "undo"
+:def instances lambdabot "instances"
+
+let loop = do { l <- getLine; if l == "\^D" then return () else do appendFile "foo.hs" (l++"\n"); loop }
+:def pasteCode (\_ -> loop >> return ":l foo.hs")
+
+:def _load const(readFile. (++"/.cabal/share/ghc-vis-0.7.1/ghci") =<< Dir.getHomeDirectory)
+:_load
+:undef _load
