@@ -14,7 +14,6 @@ autoload -U promptinit && promptinit
 PROMPT="%(?..%{$bg[red]%}%{%B%}[%?]%{%b%}%{$reset_color%} )%n.%{%U%}%M%{%u%}> "
 RPROMPT="%{$fg[magenta]%}%~%{$reset_color%}"
 
-export EDITOR="mg"
 
 pushd()
 {
@@ -31,15 +30,25 @@ alias b=popd
 
 alias top=htop
 alias topme="htop -u philip"
+pa()
+{
+    all_paths=("${(s./.)1}")
+    for path in $all_paths; do
+        p $path;
+    done
+}
 
-export PATH=$PATH:~/scripts
-export PATH=$PATH:~/.cabal/bin
-export PATH=$PATH:~/.gem/ruby/1.9.1/bin
 
 setopt nobeep
 setopt extendedglob
 
 h() { if [ -z "$*" ]; then history 1; else history 1 | egrep "$@"; fi; }
+
+
+export PATH=$PATH:$HOME/scripts
+export PATH=$PATH:$HOME/.cabal/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.0.0/bin
+export PATH=$PATH:/usr/bin/vendor_perl
 
 # urxvt title
 if [ "$SHELL" = '/bin/zsh' ]
@@ -59,9 +68,30 @@ alias igrep="grep -i"
 alias gits="git status -sb"
 alias gitd="git diff"
 alias gitdc="git diff --cached"
+alias gt=gitodo
+alias tiga="tig --all"
 
-# ack
-export PATH=$PATH:/usr/bin/vendor_perl/
+export EDITOR="mg"
+alias rm='rm -I'
+
+
+function backward-kill-partial-word {
+	local WORDCHARS="${WORDCHARS//[\/.]/}"
+	zle backward-kill-word "$@"
+}
+zle -N backward-kill-partial-word
+bindkey '^[\' backward-kill-partial-word
+
+# disable ctrl-s
+stty -ixon
+
+# use heth!!
+alias mg=heth
+
+# ec for emacs
+alias ec=emacs
 
 # python
 export PYTHONSTARTUP=~/.pystartup
+# android
+export PATH=$PATH:/opt/android-sdk/tools
