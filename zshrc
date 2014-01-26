@@ -63,6 +63,7 @@ fi
 
 #random
 alias igrep="grep -i"
+alias ra="ranger"
 
 # git
 alias gits="git status -sb"
