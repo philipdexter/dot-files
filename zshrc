@@ -48,6 +48,7 @@ h() { if [ -z "$*" ]; then history 1; else history 1 | egrep "$@"; fi; }
 export PATH=$PATH:$HOME/scripts
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$PATH:$HOME/.gem/ruby/2.0.0/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.1.0/bin
 export PATH=$PATH:/usr/bin/vendor_perl
 
 # urxvt title
