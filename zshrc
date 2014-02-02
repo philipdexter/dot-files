@@ -78,7 +78,7 @@ alias rm='rm -I'
 
 
 function backward-kill-partial-word {
-	local WORDCHARS="${WORDCHARS//[\/.]/}"
+	local WORDCHARS="${WORDCHARS//[\/.-]/}"
 	zle backward-kill-word "$@"
 }
 zle -N backward-kill-partial-word
