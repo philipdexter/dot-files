@@ -99,3 +99,7 @@ export PYTHONSTARTUP=~/.pystartup
 export PATH=$PATH:/opt/android-sdk/tools
 
 ANYFILE () { find -maxdepth 1 -type f -print -quit }
+
+shush1 () { "$@" 1> /dev/null }
+shush2 () { "$@" 2> /dev/null }
+shush  () { "$@" &> /dev/null }
