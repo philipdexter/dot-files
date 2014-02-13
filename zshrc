@@ -97,3 +97,5 @@ alias ec=emacs
 export PYTHONSTARTUP=~/.pystartup
 # android
 export PATH=$PATH:/opt/android-sdk/tools
+
+ANYFILE () { find -maxdepth 1 -type f -print -quit }
