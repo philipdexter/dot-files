@@ -4,5 +4,7 @@ tmux.conf
 mg
 xinitrc
 Xresources
+Xresources.hack
+Xresources.pres
 pystartup
 pinerc
