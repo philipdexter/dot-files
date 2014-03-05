@@ -103,3 +103,9 @@ ANYFILE () { find -maxdepth 1 -type f -print -quit }
 shush1 () { "$@" 1> /dev/null }
 shush2 () { "$@" 2> /dev/null }
 shush  () { "$@" &> /dev/null }
+
+dynahack () {
+	xrdb ~/.Xresources.hack
+	urxvtc -e zsh -c 'cd ~/dynahack/install/dynahack-data; LD_LIBRARY_PATH=. ./dynahack'
+	xrdb ~/.Xresources
+}
