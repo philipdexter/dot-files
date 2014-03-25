@@ -1,0 +1,17 @@
+[user]
+	name = Philip Dexter
+	email = philip.dexter@gmail.com
+[credential]
+	helper = cache
+[color]
+	ui = true
+[core]
+	editor = mg
+[github]
+	user = philipdexter
+[ghi]
+	token = !cat ~/.ghi_token
+[alias]
+	fom = fetch origin master
+	mfh = merge FETCH_HEAD
+	pom = push origin master
