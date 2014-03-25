@@ -109,3 +109,11 @@ dynahack () {
 	urxvtc -e zsh -c 'cd ~/dynahack/install/dynahack-data; LD_LIBRARY_PATH=. ./dynahack'
 	xrdb ~/.Xresources
 }
+
+# ack -i and ag -i and paged version
+alias acki='ack -i'
+alias agi='ag -i'
+alias ackp='ack --pager="less -r"'
+alias agp='ag --pager="less -r"'
+alias ackip='ack -i --pager="less -r"'
+alias agip='ag -i --pager="less -r"'
