@@ -3,6 +3,8 @@ HISTSIZE=20000
 SAVEHIST=20000
 bindkey -e
 
+fpath=($HOME/projects/zsh-completions/src $fpath)
+
 zstyle :compinstall filename '~/.zshrc'
 
 autoload -Uz compinit && compinit
