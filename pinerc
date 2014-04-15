@@ -363,7 +363,12 @@ incoming-folders=
 # the default for Saves. Example: Main {host1}mail/[], Desktop mail\[]
 # Syntax: optnl-label {optnl-imap-hostname}optnl-directory-path[]
 folder-collections=mail/[],
-	gmail {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[]
+	gmail {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[],
+	haskell {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[haskell],
+	python {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[python],
+	arch {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[arch],
+	types {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[types],
+	zsh {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[zsh]
 
 # List, only needed if nntp-server not set, or news is on a different host
 # than used for NNTP posting. Examples: News *[] or News *{host3/nntp}[]
@@ -381,10 +386,10 @@ address-book=
 global-address-book=
 
 # Set by Alpine; controls beginning-of-month sent-mail pruning.
-last-time-prune-questioned=114.1
+last-time-prune-questioned=114.4
 
 # Set by Alpine; controls display of "new version" message.
-last-version-used=6.02
+last-version-used=6.03
 
 # This names the path to an alternative program, and any necessary arguments,
 # to be used in posting mail messages.  Example:
