@@ -160,7 +160,7 @@ threading-expanded-character=
 
 # When threading, character used to indicate this is the last reply
 # to the parent of this message.
-threading-lastreply-character=
+threading-lastreply-character=/
 
 # Reflects capabilities of the display you have.
 # If unset, the default is taken from your locale. That is usually the right
