@@ -85,6 +85,8 @@ function backward-kill-partial-word {
 }
 zle -N backward-kill-partial-word
 bindkey '^[\' backward-kill-partial-word
+bindkey '^w' kill-region
+bindkey '^u' backward-kill-line
 
 # disable ctrl-s
 stty -ixon
