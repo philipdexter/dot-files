@@ -80,7 +80,7 @@ alias rm='rm -I'
 
 
 function backward-kill-partial-word {
-	local WORDCHARS="${WORDCHARS//[\/.-]/}"
+	local WORDCHARS="${WORDCHARS//[\/._-]/}"
 	zle backward-kill-word "$@"
 }
 zle -N backward-kill-partial-word
@@ -121,3 +121,16 @@ alias ackp='ack --pager="less -r"'
 alias agp='ag --pager="less -r"'
 alias ackip='ack -i --pager="less -r"'
 alias agip='ag -i --pager="less -r"'
+
+# zle text editor
+function qq {
+	local file=$(realpath $BUFFER)
+	BUFFER=''
+	LBUFFER="cat > $file << EOF
+"
+	RBUFFER=`cat $file`
+	RBUFFER+="
+EOF"
+}
+zle -N qq
+bindkey '^xe' qq
