@@ -43,6 +43,7 @@ pa()
 
 setopt nobeep
 setopt extendedglob
+setopt histignorespace
 
 h() { if [ -z "$*" ]; then history 1; else history 1 | egrep "$@"; fi; }
 
@@ -126,7 +127,7 @@ alias agip='ag -i --pager="less -r"'
 function qq {
 	local file=$(realpath $BUFFER)
 	BUFFER=''
-	LBUFFER="cat > $file << EOF
+	LBUFFER=" cat > $file << EOF
 "
 	RBUFFER=`cat $file`
 	RBUFFER+="
