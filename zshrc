@@ -45,6 +45,9 @@ setopt nobeep
 setopt extendedglob
 setopt histignorespace
 
+zmodload zsh/deltochar
+bindkey '\ez' delete-to-char
+
 h() { if [ -z "$*" ]; then history 1; else history 1 | egrep "$@"; fi; }
 
 
