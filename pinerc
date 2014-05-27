@@ -368,7 +368,8 @@ folder-collections=mail/[],
 	python {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[python],
 	arch {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[arch],
 	types {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[types],
-	zsh {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[zsh]
+	zsh {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[zsh],
+	coq {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[coq],
 
 # List, only needed if nntp-server not set, or news is on a different host
 # than used for NNTP posting. Examples: News *[] or News *{host3/nntp}[]
@@ -386,7 +387,7 @@ address-book=
 global-address-book=
 
 # Set by Alpine; controls beginning-of-month sent-mail pruning.
-last-time-prune-questioned=114.4
+last-time-prune-questioned=114.5
 
 # Set by Alpine; controls display of "new version" message.
 last-version-used=6.03
