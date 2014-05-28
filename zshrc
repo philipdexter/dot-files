@@ -13,9 +13,14 @@ autoload -U colors && colors
 
 autoload -U promptinit && promptinit
 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\ee' edit-command-line
+
 PROMPT="%(?..%{$bg[red]%}%{%B%}[%?]%{%b%}%{$reset_color%} )%n.%{%U%}%M%{%u%}> "
 RPROMPT="%{$fg[magenta]%}%~%{$reset_color%}"
 
+setopt extended_history
 
 pushd()
 {
