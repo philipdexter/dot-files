@@ -15,6 +15,7 @@ import qualified System.Directory as Dir
 import qualified Data.ByteString.Lazy as L
 
 :set prompt "Λ: "
+:set prompt2 "Λ: "
 
 :def pf \str -> return $ ":! pointfree \"" ++ str ++ "\""
 :def unpf \str -> return $ ":! pointful \"" ++ str ++ "\""
