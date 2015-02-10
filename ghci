@@ -31,13 +31,6 @@ let doc p = return $ ":browser "++dropWhile (/='/')GHC.Paths.docdir++relative wh
 let users_guide p = doc ("/users_guide"++if null p then "/index.html" else p)
 :def users_guide users_guide
 
-setLambdabotHome . (++ "/.cabal/bin") =<< Dir.getHomeDirectory
-:def undo lambdabot "undo"
-:def instances lambdabot "instances"
-
-let loop = do { l <- getLine; if l == "\^D" then return () else do appendFile "foo.hs" (l++"\n"); loop }
-:def pasteCode (\_ -> loop >> return ":l foo.hs")
-
 :def _load const(readFile. (++"/.cabal/share/ghc-vis-0.7.1/ghci") =<< Dir.getHomeDirectory)
 :_load
 :undef _load
