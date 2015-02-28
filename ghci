@@ -1,36 +1,14 @@
 import Control.Applicative
 import Control.Monad
-import Control.Concurrent
-import Control.Concurrent.Async
-import Control.Parallel
 
-import GOA
 import Data.String
 import Data.Char
+import Data.Maybe
 import Data.List
 import Data.Monoid
-import Control.Monad.IO.Class
-
-import qualified System.Directory as Dir
-import qualified Data.ByteString.Lazy as L
 
 :set prompt "Λ: "
 :set prompt2 "Λ: "
 
 :def pf \str -> return $ ":! pointfree \"" ++ str ++ "\""
 :def unpf \str -> return $ ":! pointful \"" ++ str ++ "\""
-:def hlint \src -> return $ ":! hlint \""++src++"\""
-:def hoogle \s -> return $ ":! hoogle --count=15 \"" ++ s ++ "\""
-
-:def ghc_pkg (\l -> return $ ":! "++GHC.Paths.ghc_pkg++" "++l)
-:def browser (\l->return $ ":! chromium "++l)
-
-let doc p = return $ ":browser "++dropWhile (/='/')GHC.Paths.docdir++relative where { relative | p=="" = "/index.html" | otherwise = p }
-:def doc doc
-
-let users_guide p = doc ("/users_guide"++if null p then "/index.html" else p)
-:def users_guide users_guide
-
-:def _load const(readFile. (++"/.cabal/share/ghc-vis-0.7.1/ghci") =<< Dir.getHomeDirectory)
-:_load
-:undef _load
