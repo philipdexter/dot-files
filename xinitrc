@@ -8,4 +8,6 @@ xrdb ~/.Xresources
 
 setxkbmap -option ctrl:swapcaps
 
+synclient coastingspeed=0
+
 exec i3
