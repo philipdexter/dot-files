@@ -143,3 +143,13 @@ EOF"
 }
 zle -N qq
 bindkey '^xe' qq
+
+# nix
+
+alias nsp="nix-shell --pure"
+
+function c2s {
+	 cabal2nix --shell . > shell.nix
+	 sed -i -e "s/}:/, cabal-install}:/" shell.nix
+	 sed -i -e "s/];/cabal-install];/" shell.nix
+}
