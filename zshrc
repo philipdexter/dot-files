@@ -100,9 +100,6 @@ bindkey '^u' backward-kill-line
 # disable ctrl-s
 stty -ixon
 
-# use heth!!
-alias mg=heth
-
 # ec for emacs
 alias ec=emacs
 
