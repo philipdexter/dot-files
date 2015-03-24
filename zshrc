@@ -159,3 +159,7 @@ function c2s {
 function which-module {
 	 ~/.envs/result/bin/load-env-haskell-general-environment ghc-pkg find-module $1
 }
+
+function markdown-less {
+	 ~/.envs/result/bin/load-env-haskell-general-environment pandoc -s -f markdown -t man $1 | groff -T utf8 -man - | less
+}
