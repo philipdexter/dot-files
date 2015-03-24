@@ -153,3 +153,9 @@ function c2s {
 	 sed -i -e "s/}:/, cabal-install}:/" shell.nix
 	 sed -i -e "s/];/cabal-install];/" shell.nix
 }
+
+# haskell
+
+function which-module {
+	 ~/.envs/result/bin/load-env-haskell-general-environment ghc-pkg find-module $1
+}
