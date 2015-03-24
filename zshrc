@@ -40,8 +40,8 @@ alias topme="htop -u philip"
 pa()
 {
     all_paths=("${(s./.)1}")
-    for path in $all_paths; do
-        p $path;
+    for p in $all_paths; do
+        pushd $p;
     done
 }
 
