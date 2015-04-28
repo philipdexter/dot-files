@@ -151,6 +151,32 @@ function c2s {
 	 sed -i -e "s/];/cabal-install];/" shell.nix
 }
 
+function join { local IFS="$1"; shift; echo "$*"; }
+
+function gimme {
+	packages=$(join , $@)
+	read -d '' want <<EOF
+with (import <nixpkgs> {}).pkgs;
+let pkg = haskellngPackages.callPackage
+            ({ mkDerivation, base,
+               cabal-install , $packages }:
+             mkDerivation {
+               pname = "nothing";
+               version = "0.1.0.0";
+               src = ./.;
+               isLibrary = false;
+               isExecutable = false;
+               buildDepends = [
+                 base $@
+               cabal-install];
+               license = stdenv.lib.licenses.publicDomain;
+             }) {};
+in
+  pkg.env
+EOF
+	nix-shell --pure =(echo $want)
+}
+
 # haskell
 
 function which-module {
