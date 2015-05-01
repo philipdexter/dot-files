@@ -186,3 +186,7 @@ function which-module {
 function markdown-less {
 	 ~/.envs/result/bin/load-env-haskell-general-environment pandoc -s -f markdown -t man $1 | groff -T utf8 -man - | less
 }
+
+# etc
+
+alias df='df -H'
