@@ -75,6 +75,7 @@ fi
 
 #random
 alias igrep="grep -i"
+alias ifind="find . | grep -i "
 alias ra="ranger"
 
 # git
@@ -143,7 +144,7 @@ bindkey '^xe' qq
 
 # nix
 
-alias nsp="nix-shell --pure"
+alias nsp="nix-shell --pure --option extra-binary-caches http://hydra.nixos.org --option extra-binary-caches http://hydra.cryp.to"
 
 function c2s {
 	 cabal2nix --shell . > shell.nix
@@ -174,7 +175,7 @@ let pkg = haskellngPackages.callPackage
 in
   pkg.env
 EOF
-	nix-shell --pure =(echo $want)
+	nix-shell --pure --option extra-binary-caches http://hydra.nixos.org --option extra-binary-caches http://hydra.cryp.to =(echo $want)
 }
 
 # haskell
