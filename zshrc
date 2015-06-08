@@ -22,6 +22,8 @@ RPROMPT="%{$fg[magenta]%}%~%{$reset_color%}"
 
 setopt extended_history
 
+setopt multios
+
 pushd()
 {
     builtin pushd "$@" > /dev/null
