@@ -9,3 +9,4 @@ Xresources.pres
 pystartup
 pinerc
 gitconfig
+i3config .i3/config
