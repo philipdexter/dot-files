@@ -2,10 +2,9 @@
 
 ## Usage
 
-Run the [manage](manage.rkt) file as `racket manage.rkt` or
-`./manage.rkt` to move everything listed in `files` and `dirs` to your
-home directory
+Run the [manage](manage.hs) file as `runhaskell manage.hs` or
+`./manage.hs` to link everything listed in `files` home directory
 
 ## Requirements
 
-* [racket](http://racket-lang.org)
+* [haskell](http://haskell.org)
