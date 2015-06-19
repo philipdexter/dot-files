@@ -7,12 +7,19 @@ import Control.Monad (forM_)
 
 main = do
   dir <- pwd
-  files <- return . lines =<< liftIO (readFile "files")
-  forM_ files $ \f -> do
+  files <- return . fmap words . lines =<< liftIO (readFile "files")
+  forM_ files $ \(f:fullpath) -> do
          let full = dir </> (fromString f)
-         copyTo <- fmap (<>fromString("."<>f)) home
+         copyTo <- case fullpath of
+                     []       -> fmap (<>fromString("."<>f)) home
+                     (path:_) -> fmap (<>fromString path) home
          exists <- testfile copyTo
-         let flag = if exists then "." else "\\*"
-         stdout (inshell (format ("[ -L "%fp%" ] && true || echo WARNING: "%fp%"is not a symlink") copyTo copyTo) empty)
-         shell ("echo " <> (format (s%" "%fp%" --\\> "%fp) flag full copyTo)) empty
-         shell (format ("ln -sf "%fp%" "%fp) full copyTo) empty
+         let flag = if exists then "." else "*"
+         isLink <- if not exists
+                   then return ExitSuccess
+                   else shell (format ("[ -L "%fp%" ]") copyTo) empty
+         case isLink of
+           ExitSuccess -> do
+                            echo (format (s%" "%fp%" --> "%fp) flag full copyTo)
+                            shell (format ("ln -sf "%fp%" "%fp) full copyTo) empty
+           _           -> echo (format ("WARNING: "%fp%" is not a symlink , NOT LINKING") copyTo) >> return ExitSuccess
