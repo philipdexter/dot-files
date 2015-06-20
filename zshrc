@@ -145,42 +145,6 @@ EOF"
 zle -N qq
 bindkey '^xe' qq
 
-# nix
-
-alias nsp="nix-shell --pure --option extra-binary-caches http://hydra.nixos.org --option extra-binary-caches http://hydra.cryp.to"
-
-function c2s {
-	 cabal2nix --shell . > shell.nix
-	 sed -i -e "s/}:/, cabal-install}:/" shell.nix
-	 sed -i -e "s/];/cabal-install];/" shell.nix
-}
-
-function join { local IFS="$1"; shift; echo "$*"; }
-
-function gimme {
-	packages=$(join , $@)
-	read -d '' want <<EOF
-with (import <nixpkgs> {}).pkgs;
-let pkg = haskellngPackages.callPackage
-            ({ mkDerivation, base,
-               cabal-install , $packages }:
-             mkDerivation {
-               pname = "nothing";
-               version = "0.1.0.0";
-               src = ./.;
-               isLibrary = false;
-               isExecutable = false;
-               buildDepends = [
-                 base $@
-               cabal-install];
-               license = stdenv.lib.licenses.publicDomain;
-             }) {};
-in
-  pkg.env
-EOF
-	nix-shell --pure --option extra-binary-caches http://hydra.nixos.org --option extra-binary-caches http://hydra.cryp.to =(echo $want)
-}
-
 # haskell
 
 function which-module {
