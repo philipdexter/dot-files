@@ -365,6 +365,7 @@ incoming-folders=
 folder-collections=mail/[],
 	gmail {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[],
 	haskell {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[haskell],
+	python {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[python],
 	arch {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[arch],
 	types {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[types],
 	zsh {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[zsh],
