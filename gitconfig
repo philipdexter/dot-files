@@ -15,6 +15,20 @@
 	fom = fetch origin master
 	mfh = merge FETCH_HEAD
 	pom = push origin master
+	uaa = reset HEAD .
+	ua = reset HEAD
+	da = checkout -- .
+	d = checkout --
+	l = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	lg = !git l --graph
+	ll = !git l --numstat
+	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	ldg = !git ld --graph
+	ldr = !git ld --date=relative
+	ldrg = !git ldr --graph
+	fl = log -u
+	dl = !git ll -1
+	dld = !git fl -1
 
 [merge]
 	tool = ediff
