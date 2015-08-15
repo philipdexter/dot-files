@@ -79,6 +79,7 @@ fi
 #random
 alias igrep="grep -i"
 alias ifind="find . | grep -i "
+alias ips="ps aux | grep -i"
 alias ra="ranger"
 
 # git
