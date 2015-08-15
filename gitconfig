@@ -35,6 +35,8 @@
 	igrep = grep -Ii
 	cp = cherry-pick
 	ap = add -p
+	camend = commit --amend
+	igrepcm = log -i --grep
 
 [merge]
 	tool = ediff
