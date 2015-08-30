@@ -201,8 +201,8 @@ bindsym $mod+Shift+d exec python ~/.i3/winmenu.py
 bindcode $mod+49 exec python ~/.i3/firstfree.py
 
 # keyboard bindings
-bindsym $mod+y exec setxkbmap se
-bindsym $mod+t exec setxkbmap us
+bindsym $mod+y exec setxkbmap se && setxkbmap -option ctrl:swapcaps
+bindsym $mod+t exec setxkbmap us && setxkbmap -option ctrl:swapcaps
 
 # focus tiled/floating
 bindsym $mod+g focus mode_toggle
