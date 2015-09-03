@@ -160,7 +160,7 @@ threading-expanded-character=
 
 # When threading, character used to indicate this is the last reply
 # to the parent of this message.
-threading-lastreply-character=/
+threading-lastreply-character=\
 
 # Reflects capabilities of the display you have.
 # If unset, the default is taken from your locale. That is usually the right
@@ -365,10 +365,10 @@ incoming-folders=
 folder-collections=mail/[],
 	gmail {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[],
 	haskell {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[haskell],
+	ocaml {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[caml],
 	python {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[python],
 	arch {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[arch],
 	types {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[types],
-	zsh {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[zsh],
 	coq {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[coq],
 	agda {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[agda],
 	idris {imap.gmail.com/ssl/user=philip.dexter@gmail.com}[idris]
@@ -389,7 +389,7 @@ address-book=
 global-address-book=
 
 # Set by Alpine; controls beginning-of-month sent-mail pruning.
-last-time-prune-questioned=114.7
+last-time-prune-questioned=115.9
 
 # Set by Alpine; controls display of "new version" message.
 last-version-used=6.03
@@ -653,3 +653,7 @@ wp-state=
 
 # Web Alpine preferred width for message display in characters
 wp-columns=
+
+# #Sets presentation order of threads in thread index. Choices:
+#arrival, and thread.
+thread-sort-key=
