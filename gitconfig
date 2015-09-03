@@ -23,6 +23,7 @@
 	lg = !git l --graph
 	lga = !git lg --all
 	ll = !git l --numstat
+	llom = !git ll origin/master..
 	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
 	ldg = !git ld --graph
 	ldr = !git ld --date=relative
