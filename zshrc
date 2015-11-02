@@ -159,3 +159,6 @@ function markdown-less {
 # etc
 
 alias df='df -H'
+
+# tmux
+alias tma='tmux attach -t'
