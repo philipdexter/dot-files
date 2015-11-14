@@ -89,7 +89,7 @@ alias gitdc="git diff --cached"
 alias gt=gitodo
 alias tiga="tig --all"
 
-export EDITOR="mg"
+export EDITOR="emacs"
 alias rm='rm -I'
 
 
