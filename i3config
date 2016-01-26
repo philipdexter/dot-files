@@ -23,6 +23,8 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec urxvtc
+bindsym $mod+Shift+Return exec urxvtc -title floatme
+
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -187,6 +189,7 @@ for_window [class="Skype"] floating enable
 for_window [class="Recalibrate"] floating enable
 for_window [title="Hangouts"] floating enable
 for_window [title="Hearthstone"] floating enable
+for_window [title="floatme"] floating enable
 
 # Spotify Controls
 bindsym $mod+Shift+i exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
