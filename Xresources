@@ -3,6 +3,8 @@ URxvt*iso14755_52: false
 URxvt.scrollBar: false
 URxvt.saveLines:32767
 
+URxvt.urgentOnBell: true
+
 URxvt.pastableTabs: false
 
 URxvt.perl-ext-common: default,matcher,-searchable-scrollback
