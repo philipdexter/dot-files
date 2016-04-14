@@ -3,6 +3,8 @@ URxvt*iso14755_52: false
 URxvt.scrollBar: false
 URxvt.saveLines:32767
 
+URxvt.cursorBlink: false
+
 URxvt.keysym.C-period: \033[48~
 URxvt.keysym.C-comma: \033[49~
 URxvt.keysym.C-Return: \033[50~
