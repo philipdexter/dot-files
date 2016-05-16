@@ -108,8 +108,11 @@ stty -ixon
 
 # ec for emacs
 alias ec='emacs -nw'
+alias gnus="ec --eval '(gnus)'"
 alias em='(setsid emacs &)'
 
+# curl pdfs
+cpdf () { curl $1 | zathura - --fork }
 # python
 export PYTHONSTARTUP=~/.pystartup
 # android
