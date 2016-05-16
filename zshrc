@@ -89,7 +89,8 @@ alias gitdc="git diff --cached"
 alias gt=gitodo
 alias tiga="tig --all"
 
-export EDITOR="emacs"
+export EDITOR="emacs -nw"
+
 alias rm='rm -I'
 
 
@@ -106,7 +107,8 @@ bindkey '^u' backward-kill-line
 stty -ixon
 
 # ec for emacs
-alias ec=emacs
+alias ec='emacs -nw'
+alias em='(setsid emacs &)'
 
 # python
 export PYTHONSTARTUP=~/.pystartup

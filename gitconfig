@@ -6,7 +6,7 @@
 [color]
 	ui = true
 [core]
-	editor = emacs
+	editor = emacs -nw
 [github]
 	user = philipdexter
 [ghi]
