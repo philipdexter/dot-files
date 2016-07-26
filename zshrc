@@ -167,3 +167,12 @@ alias df='df -H'
 
 # tmux
 alias tma='tmux attach -t'
+# countdown
+countdown(){
+   seconds=$1
+   start=$((`date +%s` + $seconds))
+   while [ "$start" -ge `date +%s` ]; do
+     echo -ne "$(date -u --date @$(($start - `date +%s`)) +%H:%M:%S)\r";
+     sleep 0.1
+   done
+}
