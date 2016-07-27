@@ -176,3 +176,9 @@ countdown(){
      sleep 0.1
    done
 }
+minutes(){
+  echo $((60*$1))
+}
+alias mins=minutes
+countdownandplay() { countdown $(mins $1) && paplay --raw ~/out.raw; }
+alias cap=countdownandplay
