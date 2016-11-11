@@ -19,7 +19,8 @@
 	ua = reset HEAD
 	uma = checkout -- .
 	um = checkout --
-	l = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	lc = show HEAD
+	l = log --pretty=format:"%C(yellow)%h%Cgreen%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
 	lg = !git l --graph
 	lga = !git lg --all
 	ll = !git l --numstat
@@ -37,4 +38,6 @@
 	cp = cherry-pick
 	ap = add -p
 	camend = commit --amend
+	camendne = commit --amend --no-edit
+	cm = commit -m
 	igrepcm = log -i --grep

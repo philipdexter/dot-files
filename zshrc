@@ -84,6 +84,7 @@ alias ra="ranger"
 
 # git
 alias gits="git status -sb"
+alias gitsno="git status -sb -uno"
 alias gitd="git diff"
 alias gitdc="git diff --cached"
 alias gt=gitodo
