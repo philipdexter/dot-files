@@ -1,6 +1,6 @@
 HISTFILE=~/.histfile
-HISTSIZE=20000
-SAVEHIST=20000
+HISTSIZE=200000
+SAVEHIST=200000
 bindkey -e
 
 fpath=($HOME/projects/zsh-completions/src $fpath)
