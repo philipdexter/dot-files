@@ -3,7 +3,7 @@ HISTSIZE=200000
 SAVEHIST=200000
 bindkey -e
 
-fpath=($HOME/projects/zsh-completions/src $fpath)
+# fpath=($HOME/projects/zsh-completions/src $fpath)
 
 zstyle :compinstall filename '~/.zshrc'
 
