@@ -182,13 +182,16 @@ bindsym $mod+backslash exec chromium
 # Remove borders
 for_window [class="URxvt"] border 1pixel
 for_window [title=".*Chromium"] border 1pixel
+for_window [title=".*Nightly"] border 1pixel
 for_window [class="Spotify"] border 1pixel
 for_window [class="Emacs"] border 1pixel
 for_window [class="Zathura"] border 1pixel
 for_window [class="mpv"] border 1pixel
 for_window [title="Hearthstone"] border 1pixel
 for_window [title=".*Mozilla Thunderbird"] border 1pixel
-assign [title=".*Mozilla Thunderbird"] $ws1
+for_window [title="Slack.*"] border 1pixel
+for_window [title="digiKam"] border 1pixel
+for_window [title="darktable"] border 1pixel
 
 # Floating
 for_window [class="Skype"] floating enable
@@ -196,6 +199,7 @@ for_window [class="Recalibrate"] floating enable
 for_window [title="Hangouts"] floating enable
 for_window [title="Hearthstone"] floating enable
 for_window [title="floatme"] floating enable
+for_window [title="Anki.*"] floating enable
 
 # Spotify Controls
 bindsym $mod+Shift+i exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
