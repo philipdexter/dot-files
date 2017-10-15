@@ -217,3 +217,5 @@ fzf-file-widget() {
 }
 zle     -N   fzf-file-widget
 bindkey '\ew' fzf-file-widget
+
+export ERL_AFLAGS="-kernel shell_history enabled"
