@@ -215,7 +215,76 @@ fzf-file-widget() {
   typeset -f zle-line-init >/dev/null && zle zle-line-init
   return $ret
 }
+fzf-edit-file-widget() {
+  LBUFFER="ec ${LBUFFER}$(__fsel)"
+  local ret=$?
+  [[ ret -eq 0 ]] && zle accept-line
+  zle redisplay
+  typeset -f zle-line-init >/dev/null && zle zle-line-init
+  return $ret
+}
 zle     -N   fzf-file-widget
+zle     -N   fzf-edit-file-widget
 bindkey '\ew' fzf-file-widget
+bindkey '\ei' fzf-edit-file-widget
+
+fzf-history-widget() {
+  local selected num
+  setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
+  selected=( $(fc -l 1 |
+    FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --tac -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(q)LBUFFER} +m" $(__fzfcmd)) )
+  local ret=$?
+  if [ -n "$selected" ]; then
+    num=$selected[1]
+    if [ -n "$num" ]; then
+      zle vi-fetch-history -n $num
+    fi
+  fi
+  zle redisplay
+  typeset -f zle-line-init >/dev/null && zle zle-line-init
+  return $ret
+}
+zle     -N   fzf-history-widget
+bindkey '\er' fzf-history-widget
+
+fzf-git-commit-widget() {
+  local selected num
+  setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
+  selected=( $(git log --all --oneline |
+    FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --tac -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(q)LBUFFER} +m" $(__fzfcmd)) )
+  local ret=$?
+  if [ -n "$selected" ]; then
+    LBUFFER=$selected[1]
+  fi
+  zle redisplay
+  typeset -f zle-line-init >/dev/null && zle zle-line-init
+  return $ret
+}
+zle     -N   fzf-git-commit-widget
+bindkey '\eg' fzf-git-commit-widget
+
+git-fshow() {
+        local g=(
+                git log
+                --graph
+                --format='%C(auto)%h%d %s %C(white)%C(bold)%cr'
+                --color=always
+                "$@"
+        )
+
+        local fzf=(
+                fzf
+                --ansi
+                --reverse
+                --tiebreak=index
+                --no-sort
+                --bind=ctrl-s:toggle-sort
+                --bind=ctrl-d:preview-down,ctrl-u:preview-up
+                --preview 'f() { set -- $(echo -- "$@" | grep -o "[a-f0-9]\{7\}"); [ $# -eq 0 ] || git show --color=always $1; }; f {}'
+        )
+        $g | $fzf
+}
+zle -N git-fshow
+bindkey '\eG' git-fshow
 
 export ERL_AFLAGS="-kernel shell_history enabled"
