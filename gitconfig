@@ -38,6 +38,12 @@
 	cp = cherry-pick
 	ap = add -p
 	camend = commit --amend
-	camendne = commit --amend --no-edit
+	cne = commit --amend --no-edit
 	cm = commit -m
 	igrepcm = log -i --grep
+	s = status -sb
+	d = diff
+	dc = diff --cached
+	a = add
+	p = push
+	po = push origin
