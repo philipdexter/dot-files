@@ -2,10 +2,11 @@ xset -b
 
 xset r rate 200 20
 
-# redshift -l 42.1100:-75.9508 &
-#redshift -l 60.238419:24.8766544
+xset m 9/2 0
 
-redshift -l 59.403557:17.943155 &
+xinput set-prop 12 316 -1
+
+redshift -l 59.403557:17.943155 -t 5700:1850 &
 
 dunst &
 
