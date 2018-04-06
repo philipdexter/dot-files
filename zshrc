@@ -184,6 +184,10 @@ alias mins=minutes
 countdownandplay() { countdown $(mins $1) && paplay --raw ~/out.raw; }
 alias cap=countdownandplay
 
+alias ta="tmux attach -t"
+
+alias eman="erl -man"
+
 # fzf
 __fsel() {
   local cmd="${FZF_CTRL_T_COMMAND:-"command find -L . -mindepth 1 \\( -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune \
@@ -288,3 +292,14 @@ zle -N git-fshow
 bindkey '\eG' git-fshow
 
 export ERL_AFLAGS="-kernel shell_history enabled"
+
+# vim pager
+function = () { /usr/share/vim/vim80/macros/less.sh $@ }
+page-file() {
+  LBUFFER="= ${LBUFFER}"
+  zle accept-line
+}
+zle -N page-file
+bindkey '\eo' page-file
+
+alias g=git
