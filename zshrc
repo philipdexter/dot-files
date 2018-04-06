@@ -60,8 +60,9 @@ h() { if [ -z "$*" ]; then history 1; else history 1 | egrep "$@"; fi; }
 
 export PATH=$PATH:$HOME/scripts
 export PATH=$PATH:$HOME/.cabal/bin
-export PATH=$PATH:$HOME/.gem/ruby/2.0.0/bin
-export PATH=$PATH:$HOME/.gem/ruby/2.1.0/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin
+# export PATH=$PATH:$HOME/.gem/ruby/2.0.0/bin
+# export PATH=$PATH:$HOME/.gem/ruby/2.1.0/bin
 export PATH=$PATH:/usr/bin/vendor_perl
 export PATH=$PATH:$HOME/.local/bin
 
@@ -110,10 +111,18 @@ stty -ixon
 # ec for emacs
 alias ec='emacs -nw'
 alias gnus="ec --eval '(gnus)'"
-alias em='(setsid emacs &)'
+alias gnusm="em --eval '(gnus)'"
+em() { (setsid emacs $@ &) }
+eww() { ec --eval "(eww-browse-url \"$1\")"; }
+ewwm() { em --eval "(eww-browse-url \"$1\")"; }
 
 # curl pdfs
 cpdf () { curl $1 | zathura - --fork }
+
+# youtube-dl and watch
+ytmpv () { youtube-dl -o- "$1" | mpv - }
+ytmpvlq () { youtube-dl -f18 -o- "$1" | mpv - }
+
 # python
 export PYTHONSTARTUP=~/.pystartup
 # android
@@ -166,8 +175,18 @@ function markdown-less {
 
 alias df='df -H'
 
+# OPAM configuration
+. /home/philip/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# iso date
+alias isod='date -I'
+
 # tmux
 alias tma='tmux attach -t'
+
+# watching
+alias wn=watch_next
+
 # countdown
 countdown(){
    seconds=$1
@@ -181,8 +200,11 @@ minutes(){
   echo $((60*$1))
 }
 alias mins=minutes
-countdownandplay() { countdown $(mins $1) && paplay --raw ~/out.raw; }
+countdownandplay() { countdown $(mins $1) && echo '\a' && paplay --raw ~/alarm.wav; }
 alias cap=countdownandplay
+
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH:$GOPATH/bin
 
 alias ta="tmux attach -t"
 
@@ -302,4 +324,12 @@ page-file() {
 zle -N page-file
 bindkey '\eo' page-file
 
+# iex
+alias imix="iex -S mix"
+
 alias g=git
+
+# keyboard setup
+kb () { xset r rate 200 20 && setxkbmap -option ctrl:swapcaps }
+
+alias factor="~/projects/factor/factor"
