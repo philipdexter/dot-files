@@ -11,9 +11,8 @@
 
 set $mod Mod4
 
-# workspace names
-set $ws1 "1:✉"
-set $ws2 "2:☂"
+# set $ws1 "1:✉"
+# set $ws2 "2:☂"
 
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -89,8 +88,8 @@ bindsym $mod+a focus parent
 #bindcode $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
@@ -109,8 +108,8 @@ bindsym $mod+Control+Shift+at move container to workspace 5
 bindsym $mod+Control+Shift+numbersign move container to workspace 6
 
 # move focused container to workspace
-bindsym $mod+Shift+exclam move container to workspace $ws1
-bindsym $mod+Shift+at move container to workspace $ws2
+bindsym $mod+Shift+exclam move container to workspace 1
+bindsym $mod+Shift+at move container to workspace 2
 bindsym $mod+Shift+numbersign move container to workspace 3
 bindsym $mod+Shift+dollar move container to workspace 4
 bindsym $mod+Shift+percent move container to workspace 5
@@ -171,13 +170,13 @@ bar {
 	strip_workspace_numbers yes
 
 	colors {
-		focused_workspace #000000 #000000 #07A693
+		focused_workspace #000000 #000000 #ffa500
 		inactive_workspace #000000 #000000 #888888
 	}
 }
 
-# Chromium launcher
-bindsym $mod+backslash exec chromium
+# Firefox launcher
+bindsym $mod+backslash exec firefox-nightly
 
 # Remove borders
 for_window [class="URxvt"] border 1pixel
@@ -196,10 +195,7 @@ for_window [title="darktable"] border 1pixel
 # Floating
 for_window [class="Skype"] floating enable
 for_window [class="Recalibrate"] floating enable
-for_window [title="Hangouts"] floating enable
-for_window [title="Hearthstone"] floating enable
 for_window [title="floatme"] floating enable
-for_window [title="Anki.*"] floating enable
 
 # Spotify Controls
 bindsym $mod+Shift+i exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
@@ -212,7 +208,7 @@ bindcode 122 exec amixer sset Master 9%-
 bindcode 123 exec amixer sset Master 9%+
 
 # Lock Screen
-bindsym $mod+Control+l exec i3lock -c 110022
+bindsym $mod+Control+l exec i3lock -c 008822
 
 # awesome winmenu
 bindsym $mod+Shift+d exec python ~/.i3/winmenu.py
@@ -223,3 +219,6 @@ bindcode $mod+49 exec python ~/.i3/firstfree.py
 # keyboard bindings
 bindsym $mod+y exec setxkbmap se && setxkbmap -option ctrl:swapcaps
 bindsym $mod+t exec setxkbmap us && setxkbmap -option ctrl:swapcaps
+
+bindcode 179 exec systemctl suspend
+bindcode 245 exec (i3lock -c 008822 && systemctl hibernate)
