@@ -5,10 +5,10 @@ URxvt.saveLines:32767
 
 URxvt.cursorBlink: false
 
-URxvt.keysym.C-period: \033[48~
-URxvt.keysym.C-comma: \033[49~
-URxvt.keysym.C-Return: \033[50~
-URxvt.keysym.M-S-Return: \033[51~
+! URxvt.keysym.C-period: \033[48~
+! URxvt.keysym.C-comma: \033[49~
+! URxvt.keysym.C-Return: \033[50~
+! URxvt.keysym.M-S-Return: \033[51~
 URxvt.keysym.C-M-S-percent: \033[52~
 
 
