@@ -30,38 +30,38 @@ URxvt.resize-font.bigger: C-Up
 *fadeColor:               #111111
 
 ! special
-*.foreground:   #b7c0c3
-*.background:   #000000
-*.cursorColor:  #b7c0c3
+*.foreground:   #98d1ce
+*.background:   #0a0f14
+*.cursorColor:  #98d1ce
 
 ! black
-*.color0:       #eee8d5
-*.color8:       #fdf6e3
+*.color0:       #0a0f14
+*.color8:       #10151b
 
 ! red
-*.color1:       #dc322f
-*.color9:       #d39a82
+*.color1:       #c33027
+*.color9:       #d26939
 
 ! green
-*.color2:       #06b036
-*.color10:      #a3e98e
+*.color2:       #26a98b
+*.color10:      #081f2d
 
 ! yellow
-*.color3:       #c5762f
-*.color11:      #839496
+*.color3:       #edb54b
+*.color11:      #245361
 
 ! blue
-*.color4:       #268bd2
-*.color12:      #85bfcd
+*.color4:       #195465
+*.color12:      #093748
 
 ! magenta
-*.color5:       #d33682
-*.color13:      #6c71c4
+*.color5:       #4e5165
+*.color13:      #888ba5
 
 ! cyan
-*.color6:       #2aa198
-*.color14:      #85cfd7
+*.color6:       #33859d
+*.color14:      #599caa
 
 ! white
-*.color7:       #d1f5ff
-*.color15:      #a7bcc1
+*.color7:       #98d1ce
+*.color15:      #d3ebe9
