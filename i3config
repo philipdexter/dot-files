@@ -28,8 +28,8 @@ bindsym $mod+Shift+Return exec urxvtc -title floatme
 bindsym $mod+s sticky toggle
 
 # hide and show to scratchpad
-bindsym $mod+Shift+minus scratchpad show
-bindsym $mod+minus move scratchpad
+# bindsym $mod+Shift+minus scratchpad show
+# bindsym $mod+minus move scratchpad
 
 # kill focused window
 bindsym $mod+Shift+Q kill
