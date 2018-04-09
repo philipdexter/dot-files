@@ -142,7 +142,7 @@ dynahack () {
 
 # ack -i and ag -i and paged version
 alias acki='ack -i'
-alias agi='ag -i'
+alias agi='ag --color-path="1;35" -i'
 alias ackp='ack --pager="less -r"'
 alias agp='ag --pager="less -r"'
 alias ackip='ack -i --pager="less -r"'
