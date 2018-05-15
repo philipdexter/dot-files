@@ -47,3 +47,5 @@
 	a = add
 	p = push
 	po = push origin
+	c = checkout
+	ri = rebase -i
