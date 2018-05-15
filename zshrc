@@ -338,3 +338,22 @@ ediff() { ec --eval "(ediff-files \"$1\" \"$2\")" }
 
 tvon() { xrandr --output HDMI-2  --mode 1920x1080 --right-of eDP-1 ; pkill redshift }
 tvoff() { xrandr --output HDMI-2 --off ; (setsid redshift -l 59.403557:17.943155 -t 5700:1850 &) }
+
+alias mg="ec --eval '(progn (load-magit) (delete-other-windows))'"
+
+quotize() {
+  (( ${+NUMERIC} )) || NUMERIC=1
+  times=$NUMERIC
+  unset NUMERIC
+  zle beginning-of-line
+  if [[ $times -gt 0 ]]; then
+    for i in {1..$times};
+      do zle vi-forward-blank-word
+    done
+  fi
+  zle set-mark-command
+  zle end-of-line
+  zle quote-region
+}
+zle -N quotize
+bindkey $'\e\'' quotize
