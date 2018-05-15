@@ -208,7 +208,7 @@ bindcode 122 exec amixer sset Master 9%-
 bindcode 123 exec amixer sset Master 9%+
 
 # Lock Screen
-bindsym $mod+Control+l exec i3lock -c 008822
+bindsym $mod+Control+l exec i3lock -c ff8c00
 
 # awesome winmenu
 bindsym $mod+Shift+d exec python ~/.i3/winmenu.py
@@ -221,4 +221,4 @@ bindsym $mod+y exec setxkbmap se && setxkbmap -option ctrl:swapcaps
 bindsym $mod+t exec setxkbmap us && setxkbmap -option ctrl:swapcaps
 
 bindcode 179 exec systemctl suspend
-bindcode 245 exec (i3lock -c 008822 && systemctl hibernate)
+bindcode 245 exec (i3lock -c ff8c00 && systemctl hibernate)
