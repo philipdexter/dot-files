@@ -335,3 +335,6 @@ kb () { xset r rate 200 20 && setxkbmap -option ctrl:swapcaps }
 alias factor="~/projects/factor/factor"
 
 ediff() { ec --eval "(ediff-files \"$1\" \"$2\")" }
+
+tvon() { xrandr --output HDMI-2  --mode 1920x1080 --right-of eDP-1 ; pkill redshift }
+tvoff() { xrandr --output HDMI-2 --off ; (setsid redshift -l 59.403557:17.943155 -t 5700:1850 &) }
