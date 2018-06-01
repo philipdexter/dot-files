@@ -316,7 +316,7 @@ bindkey '\eG' git-fshow
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 # vim pager
-function = () { /usr/share/vim/vim80/macros/less.sh $@ }
+function = () { /usr/share/vim/vim81/macros/less.sh $@ }
 page-file() {
   LBUFFER="= ${LBUFFER}"
   zle accept-line
