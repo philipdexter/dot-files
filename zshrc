@@ -52,6 +52,9 @@ setopt nobeep
 setopt extendedglob
 setopt histignorespace
 
+#unset NULLCMD
+READNULLCMD=less
+
 zmodload zsh/deltochar
 bindkey '\ez' delete-to-char
 
