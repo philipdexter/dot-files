@@ -1,5 +1,6 @@
 set nocompatible
-filetype plugin on
+syntax on
+filetype plugin indent on
 
 set incsearch
 set hlsearch
