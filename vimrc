@@ -2,6 +2,11 @@ set nocompatible
 syntax on
 filetype plugin indent on
 
+if has("persistent_undo")
+    set undodir=~/.vim/undo
+    set undofile
+endif
+
 set incsearch
 set hlsearch
 
