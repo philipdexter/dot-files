@@ -119,6 +119,9 @@ em() { (setsid emacs $@ &) }
 eww() { ec --eval "(eww-browse-url \"$1\")"; }
 ewwm() { em --eval "(eww-browse-url \"$1\")"; }
 
+# v for vim
+alias v=vim
+
 # curl pdfs
 cpdf () { curl $1 | zathura - --fork }
 
