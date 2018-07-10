@@ -10,3 +10,6 @@
 [submodule "vim/bundle/vim-commentary"]
 	path = vim/bundle/vim-commentary
 	url = git://github.com/tpope/vim-commentary.git
+[submodule "vim/bundle/vim-visual-page-percent"]
+	path = vim/bundle/vim-visual-page-percent
+	url = git://github.com/naddeoa/vim-visual-page-percent.git
