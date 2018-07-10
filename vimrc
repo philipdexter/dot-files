@@ -24,3 +24,5 @@ let &g:directory=$HOME . '/.cache/vim/swap//'
 if ! isdirectory(expand(&g:directory))
   silent! call mkdir(expand(&g:directory), 'p', 0700)
 endif
+
+execute pathogen#infect()
