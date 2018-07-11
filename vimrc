@@ -33,4 +33,16 @@ endif
 
 source /usr/share/vim/vimfiles/plugin/fzf.vim
 
+set laststatus=2
+set cursorline
+set number
+hi StatusLine ctermfg=140 ctermbg=0 cterm=none
+hi StatusLineNC ctermfg=7 ctermbg=0 cterm=none
+hi CursorLine ctermfg=none ctermbg=none cterm=none
+hi ColorColumn cterm=none ctermbg=none cterm=none
+hi CursorLineNr ctermfg=6 ctermbg=none cterm=none
+set statusline=%F%(\ %m%)\ %{VisualPercent()}%(\ %r%)%(\ %h%)%=%{&ft}\ 
+
+
+
 execute pathogen#infect()
