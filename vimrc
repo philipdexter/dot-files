@@ -32,13 +32,15 @@ set list
 set listchars=tab:\|\ ,trail:·
 
 set showmode
-
+set ignorecase
+set smartcase
 set viewoptions=folds         " only save folds with views
 set foldcolumn=0              " show a fold column!
 set foldtext=FoldText()       " set the collapsed fold text
 set foldmethod=indent         " set automatic folding
 set foldignore=               " always fold everything based on indent; don't ignore comments
 set fillchars=stl:\ ,stlnc:\ ,vert:\ ,fold:\ ,diff:\  " set all fillchars to space. these are used in things like fold text.
+set nofoldenable
 
 let mapleader=","
 
@@ -52,6 +54,7 @@ if has("autocmd")
     autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
         \| exe "normal! g'\"" | endif
     autocmd VimResized * exe "normal! \<c-w>="
+    autocmd CursorHold * checktime
 endif
 
 function! FoldText()
@@ -80,6 +83,7 @@ nmap <silent> <C-P> <Esc>:bp<CR>
 
 nmap <Leader>/ :nohlsearch<CR>
 
+nnoremap = ggVG=<C-o><C-o>
 map Q @@
 map U <C-r>
 nnoremap Y y$
@@ -99,12 +103,13 @@ noremap ( F(
 noremap ) f)
 noremap [ F[
 noremap ] f]
-noremap < F<
-noremap > f>
+nnoremap < F<
+nnoremap > f>
 
 
 
 source /usr/share/vim/vimfiles/plugin/fzf.vim
+nnoremap <C-f> :Files<CR>
 
 syntax on
 
@@ -127,5 +132,7 @@ hi Comment ctermfg=5 ctermbg=none cterm=none
 hi Folded       ctermfg=8    ctermbg=none cterm=none
 hi FoldColumn   ctermfg=7    ctermbg=none cterm=none
 
+hi VertSplit ctermfg=0 ctermbg=0 cterm=none
+hi MatchParen ctermfg=9 ctermbg=none cterm=none
 
 execute pathogen#infect()
