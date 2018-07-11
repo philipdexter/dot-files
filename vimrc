@@ -33,6 +33,12 @@ set listchars=tab:\|\ ,trail:·
 
 set showmode
 
+set viewoptions=folds         " only save folds with views
+set foldcolumn=0              " show a fold column!
+set foldtext=FoldText()       " set the collapsed fold text
+set foldmethod=indent         " set automatic folding
+set foldignore=               " always fold everything based on indent; don't ignore comments
+set fillchars=stl:\ ,stlnc:\ ,vert:\ ,fold:\ ,diff:\  " set all fillchars to space. these are used in things like fold text.
 
 let mapleader=","
 
@@ -48,6 +54,22 @@ if has("autocmd")
     autocmd VimResized * exe "normal! \<c-w>="
 endif
 
+function! FoldText()
+  let line = getline(v:foldstart)
+  let stripped = substitute(line, '^\s*\(.\{-}\)\s*$', '\1', '')
+
+  let dashes = v:folddashes
+  let tabbed = substitute(dashes, '-', '  ', 'g')
+
+  let line2 = getline(v:foldend)
+  let stripped2 = substitute(line2, '^\s*\(.\{-}\)\s*$', '\1', '')
+
+  let diff = v:foldend - v:foldstart
+
+  return tabbed . stripped . ' + ' . diff . ' more'
+endfunction
+
+
 map <silent> <C-H> <Esc>:wincmd h<CR>
 map <silent> <C-J> <Esc>:wincmd j<CR>
 map <silent> <C-K> <Esc>:wincmd k<CR>
@@ -61,6 +83,8 @@ nmap <Leader>/ :nohlsearch<CR>
 map Q @@
 map U <C-r>
 nnoremap Y y$
+nnoremap zv za
+nnoremap zV zA
 nnoremap ; :
 imap jj <Esc>
 nnoremap H ^
@@ -99,5 +123,9 @@ match WhitespaceEOL /\s\+$/
 hi Search ctermfg=none ctermbg=16 cterm=none
 hi IncSearch ctermfg=1 ctermbg=16 cterm=none
 hi Comment ctermfg=5 ctermbg=none cterm=none
+
+hi Folded       ctermfg=8    ctermbg=none cterm=none
+hi FoldColumn   ctermfg=7    ctermbg=none cterm=none
+
 
 execute pathogen#infect()
