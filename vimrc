@@ -1,5 +1,5 @@
 set nocompatible
-filetype plugin indent on
+filetype indent on
 
 if has("persistent_undo")
     set undodir=~/.vim/undo
