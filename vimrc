@@ -90,6 +90,7 @@ nnoremap Y y$
 nnoremap zv za
 nnoremap zV zA
 nnoremap ; :
+vnoremap ; :<Backspace><Backspace><Backspace><Backspace><Backspace>
 imap jj <Esc>
 nnoremap H ^
 nnoremap L $
@@ -105,7 +106,8 @@ noremap [ F[
 noremap ] f]
 nnoremap < F<
 nnoremap > f>
-
+vnoremap < <gv
+vnoremap > >gv
 
 
 source /usr/share/vim/vimfiles/plugin/fzf.vim
@@ -134,5 +136,14 @@ hi FoldColumn   ctermfg=7    ctermbg=none cterm=none
 
 hi VertSplit ctermfg=0 ctermbg=0 cterm=none
 hi MatchParen ctermfg=9 ctermbg=none cterm=none
+
+hi WildMenu ctermfg=14 ctermbg=0 cterm=none
+
+hi Visual ctermfg=none ctermbg=0 cterm=none
+
+hi Pmenu        ctermfg=7     ctermbg=0    cterm=none
+hi PmenuSel     ctermfg=6     ctermbg=0    cterm=none
+hi PmenuSbar    ctermfg=7     ctermbg=7    cterm=none
+hi PmenuThumb ctermfg=8 ctermbg=8 cterm=none
 
 execute pathogen#infect()
