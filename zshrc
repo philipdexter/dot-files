@@ -279,6 +279,33 @@ fzf-history-widget() {
 zle     -N   fzf-history-widget
 bindkey '\er' fzf-history-widget
 
+fzf-ag-widget() {
+  local file
+  setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
+  file=( $(ag --noheading . |
+    FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --tac -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(q)LBUFFER} +m" $(__fzfcmd) | awk -F: '{ print $1 }') )
+  LBUFFER="${LBUFFER}$file"
+  local ret=$?
+  zle redisplay
+  typeset -f zle-line-init >/dev/null && zle zle-line-init
+  return $ret
+}
+fzf-ag-column-widget() {
+  local file
+  setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
+  file=( $(ag --noheading . |
+    FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --tac -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(q)LBUFFER} +m" $(__fzfcmd) | awk -F: '{ print $1 " +" $2 }') )
+  LBUFFER="${LBUFFER}$file"
+  local ret=$?
+  zle redisplay
+  typeset -f zle-line-init >/dev/null && zle zle-line-init
+  return $ret
+}
+zle -N fzf-ag-widget
+bindkey '\ea' fzf-ag-widget
+zle -N fzf-ag-column-widget
+bindkey '\eA' fzf-ag-column-widget
+
 fzf-git-commit-widget() {
   local selected num
   setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
