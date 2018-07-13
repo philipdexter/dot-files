@@ -109,6 +109,8 @@ nnoremap > f>
 vnoremap < <gv
 vnoremap > >gv
 
+nnoremap <Leader>g :exec 'cd' fnameescape(fnamemodify(finddir('.git',
+    \ escape(expand('%:p:h'), ' ') . ';'), ':h'))<CR><CR>
 
 source /usr/share/vim/vimfiles/plugin/fzf.vim
 nnoremap <C-f> :Files<CR>
