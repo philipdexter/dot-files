@@ -37,6 +37,7 @@ set fillchars=stl:\ ,stlnc:\ ,vert:\ ,fold:\ ,diff:\  " set all fillchars to spa
 set nofoldenable
 
 let g:python_recommended_style = 0
+let g:vimtex_view_method = 'zathura'
 
 filetype plugin indent on
 
@@ -48,6 +49,7 @@ endif
 
 
 let mapleader=","
+let maplocalleader=","
 
 let &g:directory=$HOME . '/.cache/vim/swap//'
 if ! isdirectory(expand(&g:directory))
@@ -152,5 +154,7 @@ hi Pmenu        ctermfg=7     ctermbg=0    cterm=none
 hi PmenuSel     ctermfg=6     ctermbg=0    cterm=none
 hi PmenuSbar    ctermfg=7     ctermbg=7    cterm=none
 hi PmenuThumb ctermfg=8 ctermbg=8 cterm=none
+
+let g:tex_flavor = 'latex'
 
 execute pathogen#infect()

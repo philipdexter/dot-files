@@ -13,3 +13,6 @@
 [submodule "vim/bundle/vim-visual-page-percent"]
 	path = vim/bundle/vim-visual-page-percent
 	url = git://github.com/naddeoa/vim-visual-page-percent.git
+[submodule "vim/bundle/vimtex"]
+	path = vim/bundle/vimtex
+	url = git://github.com/lervag/vimtex.git
