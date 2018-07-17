@@ -1,10 +1,4 @@
 set nocompatible
-filetype indent on
-
-if has("persistent_undo")
-    set undodir=~/.vim/undo
-    set undofile
-endif
 
 set incsearch
 set hlsearch
@@ -41,6 +35,17 @@ set foldmethod=indent         " set automatic folding
 set foldignore=               " always fold everything based on indent; don't ignore comments
 set fillchars=stl:\ ,stlnc:\ ,vert:\ ,fold:\ ,diff:\  " set all fillchars to space. these are used in things like fold text.
 set nofoldenable
+
+let g:python_recommended_style = 0
+
+filetype plugin indent on
+
+if has("persistent_undo")
+    set undodir=~/.vim/undo
+    set undofile
+endif
+
+
 
 let mapleader=","
 
