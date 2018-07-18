@@ -132,7 +132,7 @@ hi StatusLineNC ctermfg=7 ctermbg=0 cterm=none
 hi CursorLine ctermfg=none ctermbg=none cterm=none
 hi ColorColumn cterm=none ctermbg=none cterm=none
 hi CursorLineNr ctermfg=6 ctermbg=none cterm=none
-set statusline=%F%(\ %m%)\ %{VisualPercent()}%(\ %r%)%(\ %h%)%=%{&ft}\ 
+set statusline=%F%(\ %m%)\ %{VisualPercent()}%(\ %r%)%(\ %h%)%=%l//%c\ \ %{&ft}\ 
 hi WhitespaceEOL ctermfg=1 ctermbg=none cterm=none
 match WhitespaceEOL /\s\+$/
 
