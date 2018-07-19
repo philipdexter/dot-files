@@ -94,7 +94,7 @@ alias gitdc="git diff --cached"
 alias gt=gitodo
 alias tiga="tig --all"
 
-export EDITOR="emacs -nw"
+export EDITOR="vim"
 
 alias rm='rm -I'
 
