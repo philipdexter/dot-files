@@ -122,6 +122,7 @@ nnoremap <Leader>g :exec 'cd' fnameescape(fnamemodify(finddir('.git',
 
 source /usr/share/vim/vimfiles/plugin/fzf.vim
 nnoremap <C-f> :Files<CR>
+nnoremap <C-b> :Buffers<CR>
 
 syntax on
 
