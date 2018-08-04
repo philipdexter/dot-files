@@ -6,3 +6,5 @@ nnoremap <buffer> <expr> <M-i> getline(line(".")) =~ "^$" ? "i%<Esc>O" : "O%<Esc
 setlocal foldmethod=expr
 setlocal foldexpr=vimtex#fold#level(v:lnum)
 setlocal foldtext=vimtex#fold#text()
+
+nnoremap <buffer> <leader>, :make<CR>
