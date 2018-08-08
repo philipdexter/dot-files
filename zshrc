@@ -122,6 +122,10 @@ ewwm() { em --eval "(eww-browse-url \"$1\")"; }
 # v for vim
 alias v=vim
 
+# z is for zathura
+alias z=zathura
+alias zf='zathura --fork'
+
 # curl pdfs
 cpdf () { curl $1 | zathura - --fork }
 
