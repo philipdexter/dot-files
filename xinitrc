@@ -8,7 +8,7 @@ xinput set-prop 12 316 -1
 
 redshift -l 59.403557:17.943155 -t 5700:1850 &
 
-xcape -e Control_L=Escape
+xcape -t 200 -e Control_L=Escape
 
 dunst &
 
