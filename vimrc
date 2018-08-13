@@ -41,6 +41,7 @@ set nojoinspaces
 let g:python_recommended_style = 0
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_latexmk = {'callback' : 0} " don't want em, disable the warning
+let g:vimtex_indent_enabled = 0
 
 filetype plugin indent on
 
