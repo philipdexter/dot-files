@@ -36,6 +36,8 @@ set foldignore=               " always fold everything based on indent; don't ig
 set fillchars=stl:\ ,stlnc:\ ,vert:\ ,fold:\ ,diff:\  " set all fillchars to space. these are used in things like fold text.
 set nofoldenable
 
+set nojoinspaces
+
 let g:python_recommended_style = 0
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_latexmk = {'callback' : 0} " don't want em, disable the warning
