@@ -252,7 +252,7 @@ fzf-file-widget() {
   return $ret
 }
 fzf-edit-file-widget() {
-  LBUFFER="ec ${LBUFFER}$(__fsel)"
+  LBUFFER="v ${LBUFFER}$(__fsel)"
   local ret=$?
   [[ ret -eq 0 ]] && zle accept-line
   zle redisplay
