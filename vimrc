@@ -143,8 +143,8 @@ set statusline=%F%(\ %m%)\ %{VisualPercent()}%(\ %r%)%(\ %h%)%=%l//%c\ \ %{&ft}\
 hi WhitespaceEOL ctermfg=1 ctermbg=none cterm=none
 match WhitespaceEOL /\s\+$/
 
-hi Search ctermfg=none ctermbg=16 cterm=none
-hi IncSearch ctermfg=1 ctermbg=16 cterm=none
+hi Search ctermfg=none ctermbg=17 cterm=none
+hi IncSearch ctermfg=5 ctermbg=14 cterm=none
 hi Comment ctermfg=5 ctermbg=none cterm=none
 
 hi Folded       ctermfg=8    ctermbg=none cterm=none
