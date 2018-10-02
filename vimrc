@@ -93,6 +93,7 @@ nmap <silent> <C-N> <Esc>:bn<CR>
 nmap <silent> <C-P> <Esc>:bp<CR>
 
 nmap <Leader>/ :nohlsearch<CR>
+nnoremap <Leader>s :set syntax=<CR>
 
 nnoremap = ggVG=<C-o><C-o>
 map Q @@
@@ -102,7 +103,8 @@ nnoremap zv za
 nnoremap zV zA
 nnoremap ; :
 vnoremap ; :<Backspace><Backspace><Backspace><Backspace><Backspace>
-imap jj <Esc>
+inoremap jj <Esc>
+inoremap <C-d> <DEL>
 nnoremap H ^
 nnoremap L $
 nnoremap K {
