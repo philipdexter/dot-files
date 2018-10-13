@@ -83,6 +83,8 @@ function! FoldText()
   return tabbed . stripped . ' + ' . diff . ' more'
 endfunction
 
+nnoremap g; ;
+nnoremap g, ,
 
 map <silent> <C-H> <Esc>:wincmd h<CR>
 map <silent> <C-J> <Esc>:wincmd j<CR>
