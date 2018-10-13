@@ -176,7 +176,7 @@ bindsym $mod+backslash exec firefox-nightly
 for_window [class="URxvt"] border 1pixel
 for_window [title=".*Chromium"] border 1pixel
 for_window [title=".*Nightly"] border 1pixel
-for_window [class="Spotify"] border 1pixel
+for_window [title="Spotify"] border 1pixel
 for_window [class="Emacs"] border 1pixel
 for_window [class="Zathura"] border 1pixel
 for_window [class="mpv"] border 1pixel
