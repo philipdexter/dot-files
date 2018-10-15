@@ -16,3 +16,6 @@
 [submodule "vim/bundle/vimtex"]
 	path = vim/bundle/vimtex
 	url = git://github.com/lervag/vimtex.git
+[submodule "vim/bundle/replacewithregister"]
+	path = vim/bundle/replacewithregister
+	url = git://github.com/vim-scripts/ReplaceWithRegister.git
