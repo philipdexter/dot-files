@@ -49,3 +49,5 @@
 	po = push origin
 	c = checkout
 	ri = rebase -i
+	mk = checkout -b
+	pob = "!f() { git push origin $(git branch | grep '^\\*' | cut -d' ' -f2) ;}; f"
