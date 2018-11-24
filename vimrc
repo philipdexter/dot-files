@@ -38,11 +38,6 @@ set nofoldenable
 
 set nojoinspaces
 
-let g:python_recommended_style = 0
-let g:vimtex_view_method = 'zathura'
-let g:vimtex_compiler_latexmk = {'callback' : 0} " don't want em, disable the warning
-let g:vimtex_indent_enabled = 0
-
 filetype plugin indent on
 
 if has("persistent_undo")
@@ -167,5 +162,10 @@ hi PmenuSbar    ctermfg=7     ctermbg=7    cterm=none
 hi PmenuThumb ctermfg=8 ctermbg=8 cterm=none
 
 let g:tex_flavor = 'latex'
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_latexmk = {'callback' : 0} " don't want em, disable the warning
+let g:vimtex_indent_enabled = 0
+
+let g:python_recommended_style = 0
 
 execute pathogen#infect()
