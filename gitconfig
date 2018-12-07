@@ -51,3 +51,5 @@
 	ri = rebase -i
 	mk = checkout -b
 	pob = "!f() { git push origin $(git branch | grep '^\\*' | cut -d' ' -f2) ;}; f"
+	pobf = "!f() { git push origin $(git branch | grep '^\\*' | cut -d' ' -f2) --force ;}; f"
+	fob = "!f() { git fetch origin $(git branch | grep '^\\*' | cut -d' ' -f2) ;}; f"
