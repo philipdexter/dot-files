@@ -402,3 +402,11 @@ quotize() {
 }
 zle -N quotize
 bindkey $'\e\'' quotize
+
+function vv()
+{
+  p $PWD
+  while [[ $PWD != '/' && ! -d venv ]]; do cd ..; done
+  . ./venv/bin/activate
+  b
+}
