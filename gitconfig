@@ -13,6 +13,7 @@
 	token = !cat ~/.ghi_token
 [alias]
 	fom = fetch origin master
+	fo = fetch origin
 	mfh = merge FETCH_HEAD
 	pom = push origin master
 	uaa = reset HEAD .
