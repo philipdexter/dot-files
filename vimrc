@@ -171,4 +171,9 @@ let g:vimtex_indent_enabled = 0
 
 let g:python_recommended_style = 0
 
+function InsertHMTime()
+  :py3 import vim ; import datetime ; vim.current.line += datetime.datetime.now().strftime("%H:%M")
+endfunction
+:command InsertHMTime :call InsertHMTime()
+
 execute pathogen#infect()
