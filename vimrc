@@ -38,6 +38,9 @@ set nofoldenable
 
 set nojoinspaces
 
+set splitbelow
+set splitright
+
 filetype plugin indent on
 
 if has("persistent_undo")
