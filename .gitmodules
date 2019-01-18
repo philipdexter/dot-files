@@ -19,3 +19,9 @@
 [submodule "vim/bundle/replacewithregister"]
 	path = vim/bundle/replacewithregister
 	url = git://github.com/vim-scripts/ReplaceWithRegister.git
+[submodule "vim/bundle/vim-ingo-library"]
+	path = vim/bundle/vim-ingo-library
+	url = git://github.com/inkarkat/vim-ingo-library.git
+[submodule "vim/bundle/vim-EnhancedJumps"]
+	path = vim/bundle/vim-EnhancedJumps
+	url = git://github.com/inkarkat/vim-EnhancedJumps.git
