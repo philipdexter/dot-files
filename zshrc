@@ -193,7 +193,16 @@ alias isod='date -I'
 alias tma='tmux attach -t'
 
 # watching
-alias wn=watch_next
+watch_next() {
+  BUFFER=$(python -c "
+import sys
+import re
+ep = re.search('E([0-9]+)', sys.argv[1])[1]
+print(re.sub('E[0-9]+', f'E{int(ep)+1:02}', sys.argv[1]))
+" "$BUFFER")
+}
+zle -N watch_next
+bindkey '\eN' watch_next
 
 # countdown
 countdown(){
