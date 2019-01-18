@@ -313,11 +313,11 @@ bindkey '\eA' fzf-ag-column-widget
 fzf-git-commit-widget() {
   local selected num
   setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
-  selected=( $(git log --all --oneline |
-    FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --tac -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(q)LBUFFER} +m" $(__fzfcmd)) )
+  selected=( $(git log --all --oneline --reverse |
+    FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --tac -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS +m" $(__fzfcmd)) )
   local ret=$?
   if [ -n "$selected" ]; then
-    LBUFFER=$selected[1]
+    LBUFFER+=$selected[1]
   fi
   zle redisplay
   typeset -f zle-line-init >/dev/null && zle zle-line-init
