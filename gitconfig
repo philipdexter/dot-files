@@ -26,6 +26,7 @@
 	lga = !git lg --all
 	ll = !git l --numstat
 	llom = !git ll origin/master..
+	llomp = !git llom -p
 	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
 	ldg = !git ld --graph
 	ldr = !git ld --date=relative
@@ -34,6 +35,7 @@
 	dl = !git ll -1
 	dld = !git fl -1
 	ns = "!f() { git diff "$1"..; }; f"
+	nsm = diff origin/master..
 	ifind = !git ls-files | grep -i
 	igrep = grep -Ii
 	cp = cherry-pick
