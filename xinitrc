@@ -6,7 +6,7 @@ xset m 9/2 0
 
 xinput set-prop 12 316 -1
 
-redshift -l 59.403557:17.943155 -t 5700:1850 &
+redshift -l 60.194654:24.956958 -t 5700:1850 &
 
 xcape -t 200 -e Control_L=Escape
 
