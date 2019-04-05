@@ -165,6 +165,7 @@ hi PmenuSbar    ctermfg=7     ctermbg=7    cterm=none
 hi PmenuThumb ctermfg=8 ctermbg=8 cterm=none
 
 let g:tex_flavor = 'latex'
+let g:surround_{char2nr('c')} = "\\\1command\1{\r}" " surround with latex command
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_latexmk = {'callback' : 0} " don't want em, disable the warning
 let g:vimtex_indent_enabled = 0
