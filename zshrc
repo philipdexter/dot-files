@@ -36,6 +36,7 @@ popd()
 
 alias p=pushd
 alias b=popd
+alias u='cd ..'
 
 alias top=htop
 alias topme="htop -u philip"
@@ -82,15 +83,8 @@ fi
 alias igrep="grep -i"
 alias ifind="find . | grep -i "
 alias ips="ps aux | grep -i"
-alias ra="ranger"
-
-# git
-alias gits="git status -sb"
-alias gitsno="git status -sb -uno"
-alias gitd="git diff"
-alias gitdc="git diff --cached"
-alias gt=gitodo
-alias tiga="tig --all"
+alias cal="cal -3m"
+alias cat="bat"
 
 export EDITOR="vim"
 
@@ -103,7 +97,6 @@ function backward-kill-partial-word {
 }
 zle -N backward-kill-partial-word
 bindkey '^[\' backward-kill-partial-word
-bindkey '^w' kill-region
 bindkey '^u' backward-kill-line
 
 # disable ctrl-s
@@ -155,25 +148,6 @@ alias ackp='ack --pager="less -r"'
 alias agp='ag --pager="less -r"'
 alias ackip='ack -i --pager="less -r"'
 alias agip='ag -i --pager="less -r"'
-
-# zle text editor
-function qq {
-	local file=$(realpath $BUFFER)
-	BUFFER=''
-	LBUFFER=" cat > $file << EOF
-"
-	RBUFFER=`cat $file`
-	RBUFFER+="
-EOF"
-}
-zle -N qq
-bindkey '^xe' qq
-
-# haskell
-
-function which-module {
-	 ~/.envs/result/bin/load-env-haskell-general-environment ghc-pkg find-module $1
-}
 
 function markdown-less {
 	 pandoc -s -f markdown -t man $1 | groff -T utf8 -man - | less
