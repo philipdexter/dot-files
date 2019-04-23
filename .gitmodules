@@ -25,3 +25,6 @@
 [submodule "vim/bundle/vim-EnhancedJumps"]
 	path = vim/bundle/vim-EnhancedJumps
 	url = git://github.com/inkarkat/vim-EnhancedJumps.git
+[submodule "vim/bundle/vim-go"]
+	path = vim/bundle/vim-go
+	url = git://github.com/fatih/vim-go.git
