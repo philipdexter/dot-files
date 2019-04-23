@@ -177,4 +177,9 @@ function InsertHMTime()
 endfunction
 :command InsertHMTime :call InsertHMTime()
 
+nmap <C-o> <Plug>EnhancedJumpsLocalOlder
+nmap <C-i> <Plug>EnhancedJumpsLocalNewer
+nmap g<C-o> <Plug>EnhancedJumpsOlder
+nmap g<C-i> <Plug>EnhancedJumpsNewer
+
 execute pathogen#infect()
