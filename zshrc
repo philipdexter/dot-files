@@ -402,3 +402,8 @@ function vv()
   . ./venv/bin/activate
   b
 }
+
+function pg() {
+  p ~/go/src/"$1"
+}
+compdef '_files -W ~/go/src' pg
