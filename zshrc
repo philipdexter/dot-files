@@ -165,6 +165,10 @@ alias isod='date -I'
 
 # tmux
 alias tma='tmux attach -t'
+alias t=tmux
+function tv(){
+  tmux new-session \; send-keys "vim $@" \; attach
+}
 
 # watching
 watch_next() {
