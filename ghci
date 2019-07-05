@@ -8,7 +8,6 @@ import Data.List
 import Data.Monoid
 
 :set prompt "Λ: "
-:set prompt2 "Λ: "
 
 :def pf \str -> return $ ":! pointfree \"" ++ str ++ "\""
 :def unpf \str -> return $ ":! pointful \"" ++ str ++ "\""
