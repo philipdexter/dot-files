@@ -81,9 +81,6 @@ function! FoldText()
   return tabbed . stripped . ' + ' . diff . ' more'
 endfunction
 
-" nnoremap g; ;
-" nnoremap g, ,
-
 map <silent> <C-H> <Esc>:wincmd h<CR>
 map <silent> <C-J> <Esc>:wincmd j<CR>
 map <silent> <C-K> <Esc>:wincmd k<CR>
@@ -92,7 +89,7 @@ map <silent> <C-L> <Esc>:wincmd l<CR>
 nmap <silent> <C-N> <Esc>:bn<CR>
 nmap <silent> <C-P> <Esc>:bp<CR>
 
-nmap <Leader>/ :nohlsearch<CR>
+nmap <Leader>/ :nohlsearch<CR>:echo ""<CR>
 nnoremap <Leader>s :set syntax=<CR>
 
 nnoremap = ggVG=<C-o><C-o>
@@ -108,7 +105,9 @@ inoremap <C-d> <DEL>
 nnoremap H ^
 nnoremap L $
 nnoremap K {
+onoremap K {
 nnoremap J }
+onoremap J }
 nnoremap ' `
 nnoremap ` '
 noremap { F{
@@ -121,6 +120,11 @@ nnoremap < F<
 nnoremap > f>
 vnoremap < <gv
 vnoremap > >gv
+
+" spell
+nnoremap z] ]s
+nnoremap z[ [s
+
 
 nnoremap <Leader>g :exec 'cd' fnameescape(fnamemodify(finddir('.git',
     \ escape(expand('%:p:h'), ' ') . ';'), ':h'))<CR><CR>
