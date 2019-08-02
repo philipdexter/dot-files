@@ -378,7 +378,9 @@ stop_bluetooth() {
 alias mg="ec --eval '(progn (load-magit) (delete-other-windows))'"
 
 warnme() {
-  if [ $? = 1 ] ; then echo '\a' ; fi
+  prev_res=$?
+  if [ $prev_res = 1 ] ; then echo '\a' ; fi
+  return $prev_res
 }
 
 quotize() {
