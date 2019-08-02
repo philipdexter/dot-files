@@ -61,5 +61,5 @@
 	rioms = rebase -i origin/master --autostash --autosquash
 	mk = checkout -b
 	pob = "!f() { git push origin $(git branch | grep '^\\*' | cut -d' ' -f2) $@ ;}; f"
-	pobf = "!f() { git push origin $(git branch | grep '^\\*' | cut -d' ' -f2) $@ --force ;}; f"
+	pobf = "!f() { git push origin $(git branch | grep '^\\*' | cut -d' ' -f2) $@ --force-with-lease ;}; f"
 	fob = "!f() { git fetch origin $(git branch | grep '^\\*' | cut -d' ' -f2) $@ ;}; f"
