@@ -146,6 +146,7 @@ alias ackp='ack --pager="less -r"'
 alias agp='ag --pager="less -r"'
 alias ackip='ack -i --pager="less -r"'
 alias agip='ag -i --pager="less -r"'
+alias rg='rg -i'
 
 function markdown-less {
 	 pandoc -s -f markdown -t man $1 | groff -T utf8 -man - | less
