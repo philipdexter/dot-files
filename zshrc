@@ -194,7 +194,9 @@ minutes(){
   echo $((60*$1))
 }
 alias mins=minutes
-countdownandplay() { countdown $(mins $1) && echo '\a' && paplay --raw ~/alarm.wav; }
+countdownandplay() {
+  countdown $(mins $1) && echo '\a' && paplay --raw ~/alarm.wav
+}
 alias cap=countdownandplay
 
 export GOPATH=~/go
@@ -367,6 +369,7 @@ tvoff() {
   xrandr --output HDMI-2 --off ; (setsid redshift -l 60.194654:24.956958 -t 5700:1850 &)
   sed -ibak -e 's/load-module module-alsa-sink device=hw:0,7/#load-module module-alsa-sink device=hw:0,7/' -ibak ~/.config/pulse/default.pa
   pulseaudio -k ; pulseaudio --start
+  xrandr --dpi 144
 }
 start_bluetooth() {
   sudo systemctl start bluetooth.service && blueman-applet
@@ -405,6 +408,7 @@ function vv()
   p $PWD
   while [[ $PWD != '/' && ! -d venv ]]; do cd ..; done
   . ./venv/bin/activate
+  echo $PWD
   b
 }
 
@@ -412,3 +416,21 @@ function pg() {
   p ~/go/src/"$1"
 }
 compdef '_files -W ~/go/src' pg
+
+alias k=kubectl
+alias sk="source <(kubectl completion zsh)"
+
+setaccel() {
+  id=$(xinput | grep 'IBM TrackPoint' | sed -e 's/.*id=\([0-9]\+\).*/\1/')
+  prop=$(xinput list-props $id | grep 'Accel Speed (' | sed -e 's/.*(\([0-9]\+\)).*/\1/')
+  echo xinput set-prop "$id" $prop -0.40
+  xinput set-prop "$id" $prop -0.40
+  xinput | grep 'IBM TrackPoint'
+  xinput list-props $id | grep 'Accel Speed ('
+}
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/opt/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/google-cloud-sdk/completion.zsh.inc'; fi
