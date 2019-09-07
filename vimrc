@@ -151,6 +151,8 @@ hi PmenuSel     ctermfg=6     ctermbg=0    cterm=none
 hi PmenuSbar    ctermfg=7     ctermbg=7    cterm=none
 hi PmenuThumb ctermfg=8 ctermbg=8 cterm=none
 
+set background=dark
+
 let g:tex_flavor = 'latex'
 let g:surround_{char2nr('c')} = "\\\1command\1{\r}" " surround with latex command
 let g:vimtex_view_method = 'zathura'
