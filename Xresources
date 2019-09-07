@@ -9,15 +9,13 @@ URxvt.urgentOnBell: true
 
 URxvt.pastableTabs: false
 
-URxvt.perl-ext-common: default,matcher,-searchable-scrollback,resize-font
+URxvt.perl-ext-common: default,matcher,-searchable-scrollback
 URxvt.url-launcher: firefox-nightly
 URxvt.matcher.button: 1
 URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 
 URxvt.font: 6x13
 
-URxvt.resize-font.smaller: C-Down
-URxvt.resize-font.bigger: C-Up
 
 *fading:                  20
 *fadeColor:               #111111
