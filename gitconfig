@@ -49,6 +49,7 @@
 	camend = commit --amend
 	cne = commit --amend --no-edit
 	cm = commit -m
+	cf = commit --fixup
 	igrepcm = log -i --grep
 	s = status -sb
 	d = diff
