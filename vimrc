@@ -91,6 +91,7 @@ nmap <silent> <C-P> <Esc>:bp<CR>
 
 nmap <Leader>/ :nohlsearch<CR>:echo ""<CR>
 nnoremap <Leader>s :set syntax=<CR>
+nnoremap <Leader>8 :w ~/.vim/tmpfiles/=strftime("%Y-%m-%d-%H:%M:%S")<CR><CR>
 
 nnoremap = ggVG=<C-o><C-o>
 map Q @@
