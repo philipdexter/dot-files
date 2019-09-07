@@ -28,11 +28,6 @@ set listchars=tab:\|\ ,trail:·
 set showmode
 set ignorecase
 set smartcase
-set viewoptions=folds         " only save folds with views
-set foldcolumn=0              " show a fold column!
-set foldtext=FoldText()       " set the collapsed fold text
-set foldmethod=indent         " set automatic folding
-set foldignore=               " always fold everything based on indent; don't ignore comments
 set fillchars=stl:\ ,stlnc:\ ,vert:\ ,fold:\ ,diff:\  " set all fillchars to space. these are used in things like fold text.
 set nofoldenable
 
@@ -65,21 +60,6 @@ if has("autocmd")
     autocmd VimResized * exe "normal! \<c-w>="
     autocmd CursorHold * checktime
 endif
-
-function! FoldText()
-  let line = getline(v:foldstart)
-  let stripped = substitute(line, '^\s*\(.\{-}\)\s*$', '\1', '')
-
-  let dashes = v:folddashes
-  let tabbed = substitute(dashes, '-', '  ', 'g')
-
-  let line2 = getline(v:foldend)
-  let stripped2 = substitute(line2, '^\s*\(.\{-}\)\s*$', '\1', '')
-
-  let diff = v:foldend - v:foldstart
-
-  return tabbed . stripped . ' + ' . diff . ' more'
-endfunction
 
 map <silent> <C-H> <Esc>:wincmd h<CR>
 map <silent> <C-J> <Esc>:wincmd j<CR>
