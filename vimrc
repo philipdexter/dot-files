@@ -194,4 +194,7 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
+let g:vimwiki_list = [{'path': '~/vimwiki/'}]
+let g:vimwiki_list_ignore_newline = 0
+
 execute pathogen#infect()
