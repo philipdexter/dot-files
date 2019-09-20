@@ -52,6 +52,7 @@
 	cf = commit --fixup
 	igrepcm = log -i --grep
 	s = status -sb
+	sno = status -sb -uno
 	d = diff
 	dc = diff --cached
 	a = add

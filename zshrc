@@ -37,6 +37,7 @@ popd()
 alias p=pushd
 alias b=popd
 alias u='cd ..'
+alias pu='p ..'
 
 alias top=htop
 alias topme="htop -u philip"
