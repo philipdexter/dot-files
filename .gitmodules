@@ -34,3 +34,6 @@
 [submodule "vim/bundle/vim-racket"]
 	path = vim/bundle/vim-racket
 	url = git://github.com/wlangstroth/vim-racket.git
+[submodule "vim/bundle/julia-vim"]
+	path = vim/bundle/julia-vim
+	url = git://github.com/JuliaEditorSupport/julia-vim.git
