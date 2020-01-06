@@ -164,8 +164,9 @@ bar {
 	strip_workspace_numbers yes
 
 	colors {
-		focused_workspace #000000 #000000 #ffa500
-		inactive_workspace #000000 #000000 #888888
+		focused_workspace #2b3235 #2b3235 #e6e6e6
+		inactive_workspace #2b3235 #2b3235 #6095c5
+		background #2b3235
 	}
 }
 
@@ -197,7 +198,7 @@ bindcode 122 exec amixer sset Master 9%-
 bindcode 123 exec amixer sset Master 9%+
 
 # Lock Screen
-bindsym $mod+Control+l exec i3lock -c 220022
+bindsym $mod+Control+l exec i3lock -c 003400
 
 # awesome winmenu
 bindsym $mod+Shift+d exec python ~/.i3/winmenu.py
@@ -210,5 +211,5 @@ bindcode $mod+Shift+49 workspace tmp
 bindsym $mod+y exec setxkbmap se && setxkbmap -option ctrl:swapcaps
 bindsym $mod+t exec setxkbmap us && setxkbmap -option ctrl:swapcaps
 
-bindcode 179 exec (i3lock -c 220022 && systemctl suspend)
-bindcode 245 exec (i3lock -c 220022 && systemctl hibernate)
+bindcode 179 exec (i3lock -c 003400 && systemctl suspend)
+bindcode 245 exec (i3lock -c 003400 && systemctl hibernate)
