@@ -266,7 +266,7 @@ bindkey '\er' fzf-history-widget
 fzf-ag-widget() {
   local file
   setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
-  file=( $(ag --noheading . |
+  file=( $(rg --no-heading . |
     FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --tac -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(q)LBUFFER} +m" $(__fzfcmd) | awk -F: '{ print $1 }') )
   LBUFFER="${LBUFFER}$file"
   local ret=$?
@@ -277,7 +277,7 @@ fzf-ag-widget() {
 fzf-ag-column-widget() {
   local file
   setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
-  file=( $(ag --noheading . |
+  file=( $(rg --no-heading . |
     FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --tac -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(q)LBUFFER} +m" $(__fzfcmd) | awk -F: '{ print $1 " +" $2 }') )
   LBUFFER="${LBUFFER}$file"
   local ret=$?
