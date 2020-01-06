@@ -140,13 +140,6 @@ dynahack () {
 	xrdb ~/.Xresources
 }
 
-# ack -i and ag -i and paged version
-alias acki='ack -i'
-alias agi='ag -i'
-alias ackp='ack --pager="less -r"'
-alias agp='ag --pager="less -r"'
-alias ackip='ack -i --pager="less -r"'
-alias agip='ag -i --pager="less -r"'
 alias rg='rg -i'
 
 function markdown-less {
