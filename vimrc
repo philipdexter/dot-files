@@ -108,7 +108,6 @@ vnoremap > >gv
 nnoremap z] ]s
 nnoremap z[ [s
 
-
 nnoremap <Leader>g :exec 'cd' fnameescape(fnamemodify(finddir('.git',
     \ escape(expand('%:p:h'), ' ') . ';'), ':h'))<CR><CR>
 
@@ -132,19 +131,19 @@ set statusline=%F%(\ %m%)\ %{VisualPercent()}%(\ %r%)%(\ %h%)%=%l//%c\ \ %{&ft}\
 hi WhitespaceEOL ctermfg=1 ctermbg=none cterm=none
 match WhitespaceEOL /\s\+$/
 
-hi Search ctermfg=none ctermbg=17 cterm=none
-hi IncSearch ctermfg=5 ctermbg=14 cterm=none
+hi Search ctermfg=none ctermbg=8 cterm=none
+hi IncSearch ctermfg=5 ctermbg=15 cterm=none
 hi Comment ctermfg=5 ctermbg=none cterm=none
 
 hi Folded       ctermfg=8    ctermbg=none cterm=none
 hi FoldColumn   ctermfg=7    ctermbg=none cterm=none
 
 hi VertSplit ctermfg=0 ctermbg=0 cterm=none
-hi MatchParen ctermfg=9 ctermbg=none cterm=none
+hi MatchParen ctermfg=9 ctermbg=2 cterm=none
 
 hi WildMenu ctermfg=14 ctermbg=0 cterm=none
 
-hi Visual ctermfg=none ctermbg=0 cterm=none
+hi Visual ctermfg=none ctermbg=6 cterm=none
 
 hi Pmenu        ctermfg=7     ctermbg=0    cterm=none
 hi PmenuSel     ctermfg=6     ctermbg=0    cterm=none
