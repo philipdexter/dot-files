@@ -1,1 +1,1 @@
-au BufReadPost,FileReadPost,BufNewFile *.txt set filetype=asciidoc
+" au BufReadPost,FileReadPost,BufNewFile *.txt set filetype=asciidoc
