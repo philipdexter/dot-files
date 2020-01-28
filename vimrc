@@ -160,6 +160,8 @@ let g:vimtex_indent_enabled = 0
 
 let g:python_recommended_style = 0
 
+let g:go_doc_keywordprg_enabled = 0
+
 function InsertHMTime()
   :py3 import vim ; import datetime ; vim.current.line += datetime.datetime.now().strftime("%H:%M")
 endfunction
