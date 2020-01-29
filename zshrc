@@ -84,6 +84,7 @@ alias ifind="find . | grep -i "
 alias ips="ps aux | grep -i"
 alias cal="cal -3m"
 alias cat="bat"
+alias m="mold"
 
 export EDITOR="vim"
 
