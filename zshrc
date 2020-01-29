@@ -398,6 +398,7 @@ quotize() {
 zle -N quotize
 bindkey $'\e\'' quotize
 
+alias vmk="python -m venv ./venv && vv"
 function vv()
 {
   p $PWD
