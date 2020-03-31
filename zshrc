@@ -364,7 +364,7 @@ tvoff() {
   xrandr --output HDMI-2 --off ; (setsid redshift -l 60.194654:24.956958 -t 5700:1850 &)
   sed -ibak -e 's/load-module module-alsa-sink device=hw:0,7/#load-module module-alsa-sink device=hw:0,7/' -ibak ~/.config/pulse/default.pa
   pulseaudio -k ; pulseaudio --start
-  xrandr --dpi 144
+  xrandr --dpi 125
 }
 start_bluetooth() {
   sudo systemctl start bluetooth.service && blueman-applet

@@ -160,13 +160,13 @@ bar {
 	workspace_buttons yes
 	tray_output LVDS1
 	position top
-	font pango:Source Code Pro 7.5
+	font pango:Source Code Pro 8
 	strip_workspace_numbers yes
 
 	colors {
-		focused_workspace #2b3235 #2b3235 #e6e6e6
-		inactive_workspace #2b3235 #2b3235 #6095c5
-		background #2b3235
+		focused_workspace #000000 #e5d197 #000000
+		inactive_workspace #000000 #000000 #ffffff
+		background #000000
 	}
 }
 
