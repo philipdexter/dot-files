@@ -164,9 +164,9 @@ bar {
 	strip_workspace_numbers yes
 
 	colors {
-		focused_workspace #000000 #e5d197 #000000
-		inactive_workspace #000000 #000000 #ffffff
-		background #000000
+		focused_workspace #1e5411 #31891b #ffffff
+		inactive_workspace #1e5411 #1e5411 #ffffff
+		background #1e5411
 	}
 }
 
