@@ -346,6 +346,7 @@ bindkey '\eo' page-file
 alias imix="iex -S mix"
 
 alias g=git
+alias tiga='tig --all'
 
 # keyboard setup
 kb () { xset r rate 200 20 && setxkbmap -option ctrl:swapcaps }
