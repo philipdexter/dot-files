@@ -186,6 +186,7 @@ for_window [title=".*Mozilla Thunderbird"] border 1pixel
 for_window [title="Slack.*"] border 1pixel
 for_window [title="digiKam"] border 1pixel
 for_window [title="darktable"] border 1pixel
+for_window [title="Picture-in-Picture"] border 1pixel
 
 # Floating
 for_window [class="Skype"] floating enable
