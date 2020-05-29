@@ -63,9 +63,10 @@ bindkey '\ez' delete-to-char
 h() { if [ -z "$*" ]; then history 1; else history 1 | egrep "$@"; fi; }
 
 export PATH=$PATH:$HOME/.cabal/bin
-export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
 export PATH=$PATH:/usr/bin/vendor_perl
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.poetry/bin
 
 # urxvt title
 if [ "$SHELL" = '/bin/zsh' ]
@@ -425,6 +426,14 @@ setaccel() {
   xinput | grep 'IBM TrackPoint'
   xinput list-props $id | grep 'Accel Speed ('
 }
+
+
+alias -g GG='| grep'
+alias -g CC='| cat'
+alias -g LL='| less'
+
+hash -d pr=~/projects/
+
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/google-cloud-sdk/path.zsh.inc'; fi
