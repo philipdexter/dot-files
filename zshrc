@@ -17,7 +17,7 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\ee' edit-command-line
 
-PROMPT="%(?..%{$bg[red]%}%{%B%}[%?]%{%b%}%{$reset_color%} )%F{222}%n.%{%U%}%M%{%u%}> %{$reset_color%}%f"
+PROMPT="%(?..%{$bg[red]%}%{%B%}[%?]%{%b%}%{$reset_color%} )%F{222}%n> %{$reset_color%}%f"
 RPROMPT="%F{209}%~%{$reset_color%}%f"
 
 setopt extended_history
@@ -89,8 +89,6 @@ alias m="mold"
 
 export EDITOR="vim"
 
-alias rm='rm -I'
-
 
 function backward-kill-partial-word {
 	local WORDCHARS="${WORDCHARS//[\/._-]/}"
@@ -126,9 +124,18 @@ ytmpv () { youtube-dl -o- "$1" | mpv - }
 ytmpvlq () { youtube-dl -f18 -o- "$1" | mpv - }
 
 # python
+alias python=python3
+alias pip=pip3
 export PYTHONSTARTUP=~/.pystartup
 # android
 export PATH=$PATH:/opt/android-sdk/tools
+
+# ruby
+export PATH=/usr/local/opt/ruby/bin:$PATH
+export PATH=/usr/local/lib/ruby/gems/2.7.0/bin:$PATH
+
+# scripts
+export PATH=$HOME/scripts:$PATH
 
 ANYFILE () { find -maxdepth 1 -type f -print -quit }
 
@@ -162,7 +169,8 @@ alias isod='date -I'
 alias tma='tmux attach -t'
 alias t=tmux
 function tv(){
-  tmux new-session \; send-keys "vim $@" \; attach
+  tmux new-session \; send-keys "vim $@
+" \; attach
 }
 
 # watching
@@ -400,7 +408,7 @@ quotize() {
 zle -N quotize
 bindkey $'\e\'' quotize
 
-alias vmk="python -m venv ./venv && vv"
+alias vmk="python3 -m venv ./venv && vv"
 function vv()
 {
   p $PWD
@@ -436,7 +444,7 @@ hash -d pr=~/projects/
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/philip/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/philip/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/opt/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/philip/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/philip/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

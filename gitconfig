@@ -23,22 +23,11 @@
 	ump = checkout -p --
 	umap = checkout -p -- .
 	lc = show HEAD
-	l = log --pretty=format:"%C(yellow)%h%Cgreen%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-	lg = !git l --graph
-	lga = !git lg --all
 	ll = !git l --numstat
 	llom = !git ll origin/master..
 	llomp = !git llom -p
-  ld = log --pretty=format:"%C(yellow)%h\\ %ad\\ %Cgreen%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-	lgd = !git ld --graph
-	ldr = !git ld --date=relative
-	lgdr = !git ldr --graph
-	lgad = !git ld --graph
-	lgadr = !git ldr --graph
-	nl = log --pretty=format:"%C(auto)%h%d\\ %s\\ %C(red)[%C(green)%cn%C(red)]\\ %C(red)%ad%C(auto)" --decorate --date=relative --graph
-	nls = nl -5
-	nla = nl --all
-	nlas = nla -5
+	l = log --pretty=format:"%C(auto)%h%d\\ %s\\ %C(red)[%C(green)%cn%C(red)]\\ %C(red)%ad%C(auto)" --decorate --date=relative --graph
+	la = l --all
 	fl = log -u
 	dl = !git ll -1
 	dld = !git fl -1
