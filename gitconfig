@@ -27,6 +27,7 @@
 	llom = !git ll origin/master..
 	llomp = !git llom -p
 	l = log --pretty=format:"%C(auto)%h%d\\ %s\\ %C(red)[%C(green)%cn%C(red)]\\ %C(red)%ad%C(auto)" --decorate --date=relative --graph
+	l5 = l -5
 	la = l --all
 	fl = log -u
 	dl = !git ll -1
