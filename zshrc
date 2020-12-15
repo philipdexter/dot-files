@@ -359,13 +359,13 @@ ediff() { ec --eval "(ediff-files \"$1\" \"$2\")" }
 tvon() {
   xrandr --output HDMI-2  --auto --right-of eDP-1 ; pkill redshift
   sed -ibak -e 's/#load-module module-alsa-sink device=hw:0,7/load-module module-alsa-sink device=hw:0,7/' -ibak ~/.config/pulse/default.pa
-  pulseaudio -k ; pulseaudio --start
+  pulseaudio -k ; sleep 2 ; pulseaudio --start
 
 }
 tvoff() {
   xrandr --output HDMI-2 --off ; (setsid redshift -l 60.194654:24.956958 -t 5700:1850 &)
   sed -ibak -e 's/load-module module-alsa-sink device=hw:0,7/#load-module module-alsa-sink device=hw:0,7/' -ibak ~/.config/pulse/default.pa
-  pulseaudio -k ; pulseaudio --start
+  pulseaudio -k ; sleep 2 ; pulseaudio --start
   xrandr --dpi 125
 }
 start_bluetooth() {
