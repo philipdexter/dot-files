@@ -39,6 +39,7 @@
 	camend = commit --amend
 	cne = commit --amend --no-edit
 	cm = commit -m
+	c = commit
 	cf = commit --fixup
 	igrepcm = log -i --grep
 	s = status -sb
@@ -46,6 +47,7 @@
 	d = diff
 	dc = diff --cached
 	a = add
+	ai = add --intent-to-add
 	p = push
 	po = push origin
 	ri = rebase -i

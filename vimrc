@@ -84,7 +84,7 @@ nnoremap zV zA
 nnoremap ; :
 vnoremap ; :<Backspace><Backspace><Backspace><Backspace><Backspace>
 inoremap jj <Esc>
-inoremap <C-d> <DEL>
+" inoremap <C-d> <DEL>
 nnoremap H ^
 nnoremap L $
 nnoremap K {
