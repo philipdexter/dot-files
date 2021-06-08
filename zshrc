@@ -17,7 +17,7 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\ee' edit-command-line
 
-PROMPT="%(?..%{$bg[red]%}%{%B%}[%?]%{%b%}%{$reset_color%} )%F{222}%n> %{$reset_color%}%f"
+PROMPT="%(?..%{$bg[red]%}%{%B%}[%?]%{%b%}%{$reset_color%} )%F{222}~~> %{$reset_color%}%f"
 RPROMPT="%F{209}%~%{$reset_color%}%f"
 
 setopt extended_history
@@ -424,27 +424,17 @@ function pg() {
 compdef '_files -W ~/go/src' pg
 
 alias k=kubectl
+alias kx=kubectx
 alias sk="source <(kubectl completion zsh)"
 
-setaccel() {
-  id=$(xinput | grep 'IBM TrackPoint' | sed -e 's/.*id=\([0-9]\+\).*/\1/')
-  prop=$(xinput list-props $id | grep 'Accel Speed (' | sed -e 's/.*(\([0-9]\+\)).*/\1/')
-  echo xinput set-prop "$id" $prop -0.40
-  xinput set-prop "$id" $prop -0.40
-  xinput | grep 'IBM TrackPoint'
-  xinput list-props $id | grep 'Accel Speed ('
-}
+export GPG_TTY=$(tty)
 
+export PATH=~/.cargo/bin/:$PATH
 
-alias -g GG='| grep'
-alias -g CC='| cat'
-alias -g LL='| less'
+export LANG=en_US.UTF-8
 
-hash -d pr=~/projects/
+alias s="pipenv shell"
 
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/philip/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/philip/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/philip/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/philip/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+alias -g V="| v -"
+alias -g J="| jq"
+alias -g JV="| jq | v -"

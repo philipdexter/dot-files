@@ -36,6 +36,8 @@ set nojoinspaces
 set splitbelow
 set splitright
 
+set belloff=all
+
 filetype plugin indent on
 
 if has("persistent_undo")
@@ -58,7 +60,7 @@ if has("autocmd")
     autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
         \| exe "normal! g'\"" | endif
     autocmd VimResized * exe "normal! \<c-w>="
-    autocmd CursorHold * checktime
+    autocmd CursorHold * silent! checktime
 endif
 
 map <silent> <C-H> <Esc>:wincmd h<CR>
@@ -72,7 +74,7 @@ nmap <silent> <C-P> <Esc>:bp<CR>
 nmap <Leader>/ :nohlsearch<CR>:echo ""<CR>
 nnoremap <Leader>s :set syntax=<CR>
 nnoremap <Leader><Leader> :checktime<CR>
-nnoremap <Leader>x :w !xsel -ib<CR><CR>
+nnoremap <Leader>x :w !pbcopy<CR><CR>
 nnoremap <Leader>8 :w ~/.vim/tmpfiles/=strftime("%Y-%m-%d-%H:%M:%S")<CR><CR>
 
 nnoremap = ggVG=<C-o><C-o>
@@ -172,14 +174,30 @@ nmap <C-i> <Plug>EnhancedJumpsLocalNewer
 nmap g<C-o> <Plug>EnhancedJumpsOlder
 nmap g<C-i> <Plug>EnhancedJumpsNewer
 
+map <leader>r :NERDTreeFind<cr><C-l>
+
+
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
+command! -bang -nargs=* Rgn call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
+nnoremap <leader>a :Rg<CR>
+nnoremap <leader>AD :Rg<CR>'def\ 
+nnoremap <leader>AC :Rg<CR>'class\ 
+nnoremap <leader>AL :Lines<CR>
+
+nnoremap <leader>o :OpenGithubFile<CR>
+nmap <leader>O V:OpenGithubFile<CR>
 
 let g:vimwiki_list = [{'path': '~/vimwiki/'}]
 let g:vimwiki_list_ignore_newline = 0
+
+let g:jedi#popup_on_dot = 0
+let g:jedi#use_splits_not_buffers = "winwidth"
+let g:jedi#show_call_signatures = "1"
 
 execute pathogen#infect()

@@ -12,27 +12,20 @@
 [ghi]
 	token = !cat ~/.ghi_token
 [alias]
-	fom = fetch origin master
+	fom = "!f() { git fetch origin $(git mainbranch) $@; }; f"
 	fo = fetch origin
 	mfh = merge FETCH_HEAD
-	pom = push origin master
+	mfom = "!f() { git fom && git mfh; }; f"
+	pom = "!f() { git push origin $(git mainbranch) $@; }; f"
 	uaa = reset HEAD .
 	ua = reset HEAD
 	uma = checkout -- .
 	um = checkout --
-	ump = checkout -p --
-	umap = checkout -p -- .
-	lc = show HEAD
-	ll = !git l --numstat
-	llom = !git ll origin/master..
-	llomp = !git llom -p
 	l = log --pretty=format:"%C(auto)%h%d\\ %s\\ %C(red)[%C(green)%cn%C(red)]\\ %C(red)%ad%C(auto)" --decorate --date=relative --graph
 	l5 = l -5
 	la = l --all
-	fl = log -u
-	dl = !git ll -1
-	dld = !git fl -1
-	ns = "!f() { git diff "$1"..; }; f"
+	dl = l --numstat -1
+	dld = log -u -1
 	igrep = grep -Ii
 	cp = cherry-pick
 	ap = add -p
@@ -43,17 +36,27 @@
 	cf = commit --fixup
 	igrepcm = log -i --grep
 	s = status -sb
-	sno = status -sb -uno
 	d = diff
 	dc = diff --cached
 	a = add
+	au = add -u
 	ai = add --intent-to-add
 	p = push
 	po = push origin
 	ri = rebase -i
-	riom = rebase -i origin/master
-	rioms = rebase -i origin/master --autostash --autosquash
+	riaa = rebase --autostash --autosquash -i
+	riom = "!f() { git rebase -i origin/$(git mainbranch) $@; }; f"
+	rioms = "!f() { git rebase -i origin/$(git mainbranch) --autostash --autosquash $@;}; f"
 	mk = checkout -b
 	pob = "!f() { git push origin $(git branch | grep '^\\*' | cut -d' ' -f2) $@ ;}; f"
 	pobf = "!f() { git push origin $(git branch | grep '^\\*' | cut -d' ' -f2) $@ --force-with-lease ;}; f"
 	fob = "!f() { git fetch origin $(git branch | grep '^\\*' | cut -d' ' -f2) $@ ;}; f"
+	co = checkout
+	mainbranch = "!f() { git symbolic-ref refs/remotes/origin/HEAD $@ | sed 's@^refs/remotes/origin/@@'; }; f"
+[commit]
+	gpgsign = true
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
