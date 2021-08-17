@@ -37,6 +37,7 @@ popd()
 alias p=pushd
 alias b=popd
 alias u='cd ..'
+alias uu='cd ../..'
 alias pu='p ..'
 
 alias top=htop
@@ -339,20 +340,6 @@ git-fshow() {
 }
 zle -N git-fshow
 bindkey '\eG' git-fshow
-
-export ERL_AFLAGS="-kernel shell_history enabled"
-
-# vim pager
-function = () { /usr/share/vim/vim81/macros/less.sh "$@" }
-page-file() {
-  LBUFFER="= ${LBUFFER}"
-  zle accept-line
-}
-zle -N page-file
-bindkey '\eo' page-file
-
-# iex
-alias imix="iex -S mix"
 
 alias g=git
 alias tiga='tig --all'

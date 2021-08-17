@@ -47,15 +47,19 @@
 	riaa = rebase --autostash --autosquash -i
 	riom = "!f() { git rebase -i origin/$(git mainbranch) $@; }; f"
 	rioms = "!f() { git rebase -i origin/$(git mainbranch) --autostash --autosquash $@;}; f"
+	frioms = "!f() { git fom && git rebase -i origin/$(git mainbranch) --autostash --autosquash $@;}; f"
 	mk = checkout -b
 	pob = "!f() { git push origin $(git branch | grep '^\\*' | cut -d' ' -f2) $@ ;}; f"
+	pobu = pob -u
 	pobd = "!f() { git push origin $(git branch | grep '^\\*' | cut -d' ' -f2) --dry-run $@ ;}; f"
 	pobf = "!f() { git push origin $(git branch | grep '^\\*' | cut -d' ' -f2) $@ --force-with-lease ;}; f"
 	pobfd = "!f() { git push origin $(git branch | grep '^\\*' | cut -d' ' -f2) --dry-run $@ --force-with-lease ;}; f"
 	fob = "!f() { git fetch origin $(git branch | grep '^\\*' | cut -d' ' -f2) $@ ;}; f"
 	co = checkout
+	com = "!f() { git checkout $(git mainbranch); }; f"
 	mainbranch = "!f() { git symbolic-ref refs/remotes/origin/HEAD $@ | sed 's@^refs/remotes/origin/@@'; }; f"
 	dbranch = "!f() { git diff $(git merge-base master $1)..$1; }; f"
+	dthisbranch = "!f() { branch=\"$(git branch | grep '^\\*' | cut -d' ' -f2)\" ; git dbranch $branch; }; f"
 [commit]
 	gpgsign = true
 [filter "lfs"]
