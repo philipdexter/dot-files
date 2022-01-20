@@ -58,7 +58,7 @@
 	co = checkout
 	com = "!f() { git checkout $(git mainbranch); }; f"
 	mainbranch = "!f() { git symbolic-ref refs/remotes/origin/HEAD $@ | sed 's@^refs/remotes/origin/@@'; }; f"
-	dbranch = "!f() { git diff $(git merge-base master $1)..$1; }; f"
+	dbranch = "!f() { git diff $(git merge-base $(git mainbranch) $1)..$1; }; f"
 	dthisbranch = "!f() { branch=\"$(git branch | grep '^\\*' | cut -d' ' -f2)\" ; git dbranch $branch; }; f"
 	torelease = "!f() { git shortlog --first-parent --pretty=format:'- %s: %b (%cr)' HEAD...$(git tag -l --sort=-v:refname | grep -E 'production-' | sed -n 2p) | sed -E 's/Merge pull request | from [^:]+//g'; }; f"
 [filter "lfs"]

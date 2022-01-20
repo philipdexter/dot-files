@@ -411,6 +411,7 @@ function pg() {
 compdef '_files -W ~/go/src' pg
 
 alias k=kubectl
+alias dc="docker-compose"
 alias kx=kubectx
 alias sk="source <(kubectl completion zsh)"
 

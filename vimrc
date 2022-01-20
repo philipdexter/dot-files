@@ -95,14 +95,10 @@ nnoremap J }
 onoremap J }
 nnoremap ' `
 nnoremap ` '
-noremap { F{
-noremap } f}
 noremap ( F(
 noremap ) f)
-noremap [ F[
-noremap ] f]
-nnoremap < F<
-nnoremap > f>
+nnoremap < <<
+nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
 
@@ -190,8 +186,8 @@ nnoremap <leader>AD :Rg<CR>'def\
 nnoremap <leader>AC :Rg<CR>'class\ 
 nnoremap <leader>AL :Lines<CR>
 
-nnoremap <leader>o :OpenGithubFile<CR>
-nmap <leader>O V:OpenGithubFile<CR>
+nnoremap <leader>o :GBrowse<CR>
+nmap <leader>O V:GBrowse<CR>
 
 let g:vimwiki_list = [{'path': '~/vimwiki/'}]
 let g:vimwiki_list_ignore_newline = 0
