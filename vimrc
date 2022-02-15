@@ -164,6 +164,11 @@ function InsertHMTime()
   :py3 import vim ; import datetime ; vim.current.line += datetime.datetime.now().strftime("%H:%M")
 endfunction
 :command InsertHMTime :call InsertHMTime()
+function InsertYMDTime()
+  :py3 import vim ; import datetime ; vim.current.line += datetime.datetime.now().strftime("%Y-%m-%d")
+endfunction
+:command InsertYMDTime :call InsertYMDTime()
+nnoremap <Leader>D :InsertYMDTime<CR>
 
 nmap <C-o> <Plug>EnhancedJumpsLocalOlder
 nmap <C-i> <Plug>EnhancedJumpsLocalNewer
