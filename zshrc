@@ -427,3 +427,5 @@ alias -g V="| v -"
 alias -g J="| jq"
 alias -g JV="| jq | v -"
 alias -g LC="| lolcat"
+
+export LESS="-i -FRX"
