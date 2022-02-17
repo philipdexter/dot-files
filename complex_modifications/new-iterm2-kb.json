@@ -1,0 +1,27 @@
+{
+  "title": "Launch new iTerm2 window",
+  "rules": [
+    {
+      "description": "mod+shift+enter - launches a new iTerm2 window with the default profile",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "return_or_enter",
+            "modifiers": {
+              "mandatory": [
+                "left_command",
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell app \"iTerm2\"' -e 'create window with default profile' -e activate -e end"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

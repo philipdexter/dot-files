@@ -1,0 +1,34 @@
+{
+  "title": "Allow command+tab in iterm2",
+  "rules": [
+    {
+      "description": "Map option+tab to command+tab if in iterm2",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"System Events\"' -e 'key down command' -e 'keystroke tab' -e 'key code 123' -e 'key up command' -e end"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.googlecode\\.iterm2$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

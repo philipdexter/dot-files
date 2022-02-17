@@ -1,0 +1,27 @@
+{
+  "title": "Launch new Chrome",
+  "rules": [
+    {
+      "description": "left option + left command + o - launches a new chrome window",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [
+                "left_option",
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell app \"Google Chrome\"' -e 'make new window' -e activate -e end"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

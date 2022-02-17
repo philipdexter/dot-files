@@ -1,0 +1,131 @@
+{
+  "title": "Numpad shortcuts",
+  "rules": [
+    {
+      "description": "4 - launches a new iTerm2 window with the default profile",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "keypad_4",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell app \"iTerm2\"' -e 'create window with default profile' -e activate -e end"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "7 - connects to cmus",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "keypad_7",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell app \"iTerm2\"' -e 'set newiterm to (create window with default profile)' -e activate -e 'tell current session of newiterm' -e 'write text \"tma music\"' -e end -e end"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "8 - dw",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "keypad_8",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell app \"iTerm2\"' -e 'set newiterm to (create window with default profile)' -e activate -e 'tell current session of newiterm' -e 'write text \"dw\"' -e end -e end"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "5- launches a new chrome window",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "keypad_5",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell app \"Google Chrome\"' -e 'make new window' -e activate -e end"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "1- workspace left",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "keypad_1",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell app \"System Events\"' -e 'key code 4 using {shift down, control down}' -e end"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "3- workspace right",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "keypad_3",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell app \"System Events\"' -e 'key code 37 using {shift down, control down}' -e end"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
