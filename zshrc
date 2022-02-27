@@ -63,10 +63,12 @@ bindkey '\ez' delete-to-char
 h() { if [ -z "$*" ]; then history 1; else history 1 | egrep "$@"; fi; }
 
 export PATH=$PATH:$HOME/.cabal/bin
-export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
+export PATH=$PATH:$HOME/.gem/ruby/3.0.0/bin
 export PATH=$PATH:/usr/bin/vendor_perl
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.poetry/bin
+
+export BROWSER=firefox
 
 # urxvt title
 if [ "$SHELL" = '/bin/zsh' ]
@@ -166,16 +168,14 @@ function tv(){
 }
 
 # watching
-watch_next() {
-  BUFFER=$(python -c "
-import sys
-import re
-ep = re.search('E([0-9]+)', sys.argv[1])[1]
-print(re.sub('E[0-9]+', f'E{int(ep)+1:02}', sys.argv[1]))
-" "$BUFFER")
+ws() {
+  echo "watching\n===="
+  for f in * ; do
+    echo $f
+  done
+  mpv * --save-position-on-quit "$@"
 }
-zle -N watch_next
-bindkey '\eN' watch_next
+alias getsubs='subliminal download -l en '
 
 # countdown
 countdown(){
@@ -360,13 +360,14 @@ tvon() {
   xrandr --output HDMI-2  --auto --right-of eDP-1 ; pkill redshift
   sed -ibak -e 's/#load-module module-alsa-sink device=hw:0,7/load-module module-alsa-sink device=hw:0,7/' -ibak ~/.config/pulse/default.pa
   pulseaudio -k ; sleep 2 ; pulseaudio --start
-
+  xset -dpms && xset s off
 }
 tvoff() {
   xrandr --output HDMI-2 --off ; (setsid redshift -l 60.194654:24.956958 -t 5700:1850 &)
   sed -ibak -e 's/load-module module-alsa-sink device=hw:0,7/#load-module module-alsa-sink device=hw:0,7/' -ibak ~/.config/pulse/default.pa
   pulseaudio -k ; sleep 2 ; pulseaudio --start
   xrandr --dpi 125
+  xset +dpms && xset s on
 }
 start_bluetooth() {
   sudo systemctl start bluetooth.service && blueman-applet
