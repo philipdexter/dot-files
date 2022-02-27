@@ -164,19 +164,19 @@ bar {
 	strip_workspace_numbers yes
 
 	colors {
-		focused_workspace #1e5411 #31891b #ffffff
-		inactive_workspace #1e5411 #1e5411 #ffffff
-		background #1e5411
+		focused_workspace #081c15 #1b4332 #ffffff
+		inactive_workspace #081c15 #081c15 #ffffff
+		background #081c15
 	}
 }
 
 # Firefox launcher
-bindsym $mod+backslash exec firefox-nightly
+bindsym $mod+backslash exec firefox
 
 # Remove borders
 for_window [class="URxvt"] border 1pixel
 for_window [title=".*Chromium"] border 1pixel
-for_window [title=".*Nightly"] border 1pixel
+for_window [title=".*Mozilla Firefox"] border 1pixel
 for_window [title="Spotify"] border 1pixel
 for_window [class="Emacs"] border 1pixel
 for_window [class="Zathura"] border 1pixel
