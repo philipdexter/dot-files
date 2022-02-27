@@ -198,11 +198,12 @@ bindcode 121 exec amixer sset Master toggle
 bindcode 122 exec amixer sset Master 9%-
 bindcode 123 exec amixer sset Master 9%+
 
+# Brightness
+bindcode 232 exec xbacklight 17.6
+bindcode 233 exec xbacklight 64.6
+
 # Lock Screen
 bindsym $mod+Control+l exec i3lock -c 003400
-
-# awesome winmenu
-bindsym $mod+Shift+d exec python ~/.i3/winmenu.py
 
 # switch to first free workspace
 bindcode $mod+49 exec python ~/.i3/firstfree.py
