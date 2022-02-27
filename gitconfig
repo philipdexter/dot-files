@@ -12,43 +12,27 @@
 [ghi]
 	token = !cat ~/.ghi_token
 [alias]
-	fom = fetch origin master
+	fom = "!f() { git fetch origin $(git mainbranch) $@; }; f"
 	fo = fetch origin
 	mfh = merge FETCH_HEAD
-	pom = push origin master
+	mfom = "!f() { git fom && git mfh; }; f"
+	pom = "!f() { git push origin $(git mainbranch) $@; }; f"
 	uaa = reset HEAD .
 	ua = reset HEAD
 	uma = checkout -- .
 	um = checkout --
-	ump = checkout -p --
-	umap = checkout -p -- .
-	lc = show HEAD
-	l = log --pretty=format:"%C(yellow)%h%Cgreen%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-	lg = !git l --graph
-	lga = !git lg --all
-	ll = !git l --numstat
-	llom = !git ll origin/master..
-	llomp = !git llom -p
-  ld = log --pretty=format:"%C(yellow)%h\\ %ad\\ %Cgreen%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-	lgd = !git ld --graph
-	ldr = !git ld --date=relative
-	lgdr = !git ldr --graph
-	lgad = !git ld --graph
-	lgadr = !git ldr --graph
-	nl = log --pretty=format:"%C(auto)%h%d\\ %s\\ %C(red)[%C(green)%cn%C(red)]\\ %C(red)%ad%C(auto)" --decorate --date=relative --graph
-	nls = nl -5
-	nla = nl --all
-	nlas = nla -5
-	fl = log -u
-	dl = !git ll -1
-	dld = !git fl -1
-	ns = "!f() { git diff "$1"..; }; f"
+	l = log --pretty=format:"%C(auto)%h%d\\ %s\\ %C(red)[%C(green)%cn%C(red)]\\ %C(red)%ad%C(auto)" --decorate --date=relative --graph
+	l5 = l -5
+	la = l --all
+	dl = l --numstat -1
+	dld = log -u -1
 	igrep = grep -Ii
 	cp = cherry-pick
 	ap = add -p
 	camend = commit --amend
 	cne = commit --amend --no-edit
 	cm = commit -m
+	c = commit
 	cf = commit --fixup
 	igrepcm = log -i --grep
 	s = status -sb
@@ -56,12 +40,25 @@
 	d = diff
 	dc = diff --cached
 	a = add
+	au = add -u
+	ai = add --intent-to-add
 	p = push
 	po = push origin
 	ri = rebase -i
-	riom = rebase -i origin/master
-	rioms = rebase -i origin/master --autostash --autosquash
+	riaa = rebase --autostash --autosquash -i
+	riom = "!f() { git rebase -i origin/$(git mainbranch) $@; }; f"
+	rioms = "!f() { git rebase -i origin/$(git mainbranch) --autostash --autosquash $@;}; f"
+	frioms = "!f() { git fom && git rebase -i origin/$(git mainbranch) --autostash --autosquash $@;}; f"
 	mk = checkout -b
 	pob = "!f() { git push origin $(git branch | grep '^\\*' | cut -d' ' -f2) $@ ;}; f"
+	pobu = pob -u
+	pobd = "!f() { git push origin $(git branch | grep '^\\*' | cut -d' ' -f2) --dry-run $@ ;}; f"
 	pobf = "!f() { git push origin $(git branch | grep '^\\*' | cut -d' ' -f2) $@ --force-with-lease ;}; f"
+	pobfd = "!f() { git push origin $(git branch | grep '^\\*' | cut -d' ' -f2) --dry-run $@ --force-with-lease ;}; f"
 	fob = "!f() { git fetch origin $(git branch | grep '^\\*' | cut -d' ' -f2) $@ ;}; f"
+	co = checkout
+	com = "!f() { git checkout $(git mainbranch); }; f"
+	mainbranch = "!f() { git symbolic-ref refs/remotes/origin/HEAD $@ | sed 's@^refs/remotes/origin/@@'; }; f"
+	dbranch = "!f() { git diff $(git merge-base $(git mainbranch) $1)..$1; }; f"
+	dthisbranch = "!f() { branch=\"$(git branch | grep '^\\*' | cut -d' ' -f2)\" ; git dbranch $branch; }; f"
+	torelease = "!f() { git shortlog --first-parent --pretty=format:'- %s: %b (%cr)' HEAD...$(git tag -l --sort=-v:refname | grep -E 'production-' | sed -n 2p) | sed -E 's/Merge pull request | from [^:]+//g'; }; f"
