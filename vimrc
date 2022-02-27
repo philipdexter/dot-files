@@ -58,7 +58,7 @@ if has("autocmd")
     autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
         \| exe "normal! g'\"" | endif
     autocmd VimResized * exe "normal! \<c-w>="
-    autocmd CursorHold * checktime
+    autocmd CursorHold * silent! checktime
 endif
 
 map <silent> <C-H> <Esc>:wincmd h<CR>
@@ -84,7 +84,7 @@ nnoremap zV zA
 nnoremap ; :
 vnoremap ; :<Backspace><Backspace><Backspace><Backspace><Backspace>
 inoremap jj <Esc>
-inoremap <C-d> <DEL>
+" inoremap <C-d> <DEL>
 nnoremap H ^
 nnoremap L $
 nnoremap K {
@@ -93,14 +93,10 @@ nnoremap J }
 onoremap J }
 nnoremap ' `
 nnoremap ` '
-noremap { F{
-noremap } f}
 noremap ( F(
 noremap ) f)
-noremap [ F[
-noremap ] f]
-nnoremap < F<
-nnoremap > f>
+nnoremap < <<
+nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
 
@@ -178,6 +174,12 @@ command! -bang -nargs=* Rg
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
+command! -bang -nargs=* Rgn call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
+nnoremap <leader>a :Rg<CR>
+nnoremap <leader>AD :Rg<CR>'def\ 
+nnoremap <leader>AC :Rg<CR>'class\ 
+nnoremap <leader>AL :Lines<CR>
 
 let g:vimwiki_list = [{'path': '~/vimwiki/'}]
 let g:vimwiki_list_ignore_newline = 0
