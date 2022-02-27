@@ -209,7 +209,7 @@ bindcode $mod+49 exec python ~/.i3/firstfree.py
 bindcode $mod+Shift+49 workspace tmp
 
 # keyboard bindings
-bindsym $mod+y exec setxkbmap se && setxkbmap -option ctrl:swapcaps
+bindsym $mod+y exec setxkbmap fi && setxkbmap -option ctrl:swapcaps
 bindsym $mod+t exec setxkbmap us && setxkbmap -option ctrl:swapcaps
 
 bindcode 179 exec (i3lock -c 003400 && systemctl suspend)
