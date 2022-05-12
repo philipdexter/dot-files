@@ -429,3 +429,5 @@ alias -g JV="| jq | v -"
 alias -g LC="| lolcat"
 
 export LESS="-i -FRX"
+
+export FZF_DEFAULT_OPTS='--bind ctrl-j:next-history,ctrl-k:previous-history,ctrl-n:down,ctrl-p:up'
