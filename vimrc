@@ -171,6 +171,11 @@ function InsertYMDTime()
 endfunction
 :command InsertYMDTime :call InsertYMDTime()
 nnoremap <Leader>D :InsertYMDTime<CR>
+function InsertHeadingYMDTime()
+  :py3 import vim ; import datetime ; vim.current.line += '# ' + datetime.datetime.now().strftime("%Y-%m-%d")
+endfunction
+:command InsertHeadingYMDTime :call InsertHeadingYMDTime()
+nnoremap <Leader>H :InsertHeadingYMDTime<CR>
 
 nmap <C-o> <Plug>EnhancedJumpsLocalOlder
 nmap <C-i> <Plug>EnhancedJumpsLocalNewer
