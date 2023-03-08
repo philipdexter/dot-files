@@ -109,10 +109,12 @@ nnoremap z[ [s
 nnoremap <Leader>g :exec 'cd' fnameescape(fnamemodify(finddir('.git',
     \ escape(expand('%:p:h'), ' ') . ';'), ':h'))<CR><CR>
 
-source /usr/local/opt/fzf/plugin/fzf.vim
+source /opt/homebrew/opt/fzf/plugin/fzf.vim
 nnoremap <C-f> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
 let g:fzf_history_dir = '~/.fzfhistory'
+
+nnoremap gj V}Jo<Esc>0j
 
 
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
