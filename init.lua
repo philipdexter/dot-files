@@ -47,7 +47,7 @@ end)
 --         device:setDefaultOutputDevice()
 --     end
 -- end)
-
+--
 -- hs.hotkey.bind({"cmd", "shift"}, "x", function()
 --     local device = hs.audiodevice.findOutputByName("Scarlett Solo USB")
 --     if device then
@@ -56,24 +56,28 @@ end)
 -- end)
 
 
+-- hs.hotkey.bind({"cmd", "shift"}, "v", function()
+--   hs.application.launchOrFocus("Things")
+-- end)
+--
+-- hs.hotkey.bind({"cmd", "shift"}, "i", function()
+--   hs.spotify.playpause()
+-- end)
+--
+-- hs.hotkey.bind({"cmd", "shift"}, "u", function()
+--   hs.spotify.previous()
+-- end)
+--
+-- hs.hotkey.bind({"cmd", "shift"}, "o", function()
+--   hs.spotify.next()
+-- end)
+--
+-- hs.hotkey.bind({"cmd", "shift"}, "p", function()
+--   hs.application.launchOrFocus("Spotify")
+-- end)
+
 hs.hotkey.bind({"cmd", "shift"}, "v", function()
-  hs.application.launchOrFocus("Things")
-end)
-
-hs.hotkey.bind({"cmd", "shift"}, "i", function()
-  hs.spotify.playpause()
-end)
-
-hs.hotkey.bind({"cmd", "shift"}, "u", function()
-  hs.spotify.previous()
-end)
-
-hs.hotkey.bind({"cmd", "shift"}, "o", function()
-  hs.spotify.next()
-end)
-
-hs.hotkey.bind({"cmd", "shift"}, "p", function()
-  hs.application.launchOrFocus("Spotify")
+  hs.application.launchOrFocus("Things3")
 end)
 
 hs.hotkey.bind({"cmd", "shift"}, "f", function()
@@ -124,10 +128,10 @@ hs.hotkey.bind({"cmd", "shift"}, "n", function()
   win:setFrame(f)
 end)
 
-hs.hotkey.bind({"cmd", "ctrl"}, "l", function()
-  hs.spotify.playpause()
-end)
+-- hs.hotkey.bind({"cmd", "ctrl"}, "l", function()
+--   hs.spotify.playpause()
+-- end)
 
-hs.hotkey.bind({"cmd"}, "\\", function()
-  hs.execute("sh ~/scripts/mc.sh", true)
-end)
+-- hs.hotkey.bind({"cmd"}, "\\", function()
+--   hs.execute("sh ~/scripts/mc.sh", true)
+-- end)
