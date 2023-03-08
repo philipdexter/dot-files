@@ -41,23 +41,23 @@ hs.midi.deviceCallback(function(devices, virtualDevices)
      end
 end)
 
-hs.hotkey.bind({"cmd", "shift"}, "c", function()
-    local device = hs.audiodevice.findOutputByName("External Headphones")
-    if device then
-        device:setDefaultOutputDevice()
-    end
-end)
+-- hs.hotkey.bind({"cmd", "shift"}, "c", function()
+--     local device = hs.audiodevice.findOutputByName("External Headphones")
+--     if device then
+--         device:setDefaultOutputDevice()
+--     end
+-- end)
 
-hs.hotkey.bind({"cmd", "shift"}, "x", function()
-    local device = hs.audiodevice.findOutputByName("Scarlett Solo USB")
-    if device then
-        device:setDefaultOutputDevice()
-    end
-end)
+-- hs.hotkey.bind({"cmd", "shift"}, "x", function()
+--     local device = hs.audiodevice.findOutputByName("Scarlett Solo USB")
+--     if device then
+--         device:setDefaultOutputDevice()
+--     end
+-- end)
 
 
 hs.hotkey.bind({"cmd", "shift"}, "v", function()
-  hs.application.launchOrFocus("MuseScore 3")
+  hs.application.launchOrFocus("Things")
 end)
 
 hs.hotkey.bind({"cmd", "shift"}, "i", function()
