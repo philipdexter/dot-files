@@ -113,10 +113,6 @@ ewwm() { em --eval "(eww-browse-url \"$1\")"; }
 # v for vim
 alias v=vim
 
-# z is for zathura
-alias z=zathura
-alias zf='zathura --fork'
-
 # curl pdfs
 cpdf () { curl $1 | zathura - --fork }
 
@@ -127,7 +123,7 @@ ytmpvlq () { youtube-dl -f18 -o- "$1" | mpv - }
 # python
 alias python=python3
 alias pip=pip3
-export PYTHONSTARTUP=~/.pystartup
+# export PYTHONSTARTUP=~/.pystartup
 # android
 export PATH=$PATH:/opt/android-sdk/tools
 
@@ -288,7 +284,7 @@ fzf-ag-widget() {
 fzf-ag-column-widget() {
   local file
   setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
-  file=( $(rg --no-heading . |
+  file=( $(rg --no-heading -n . |
     FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --tac -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(q)LBUFFER} +m" $(__fzfcmd) | awk -F: '{ print $1 " +" $2 }') )
   LBUFFER="${LBUFFER}$file"
   local ret=$?
@@ -415,6 +411,7 @@ alias dc="docker-compose"
 alias kx=kubectx
 alias sk="source <(kubectl completion zsh)"
 
+# wolt stuff
 export GPG_TTY=$(tty)
 
 export PATH=~/.cargo/bin/:$PATH
