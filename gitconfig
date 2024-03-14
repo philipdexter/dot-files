@@ -1,6 +1,11 @@
 [user]
 	name = Philip Dexter
-	email = philip.dexter@gmail.com
+	; email = philip.dexter@gmail.com
+	email = philip.dexter@wolt.com
+[commit]
+    gpgsign = true
+[tag]
+    gpgsign = true
 [credential]
 	helper = cache
 [color]
@@ -66,3 +71,5 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[url "git@github.com:"]
+	insteadOf = https://github.com/
