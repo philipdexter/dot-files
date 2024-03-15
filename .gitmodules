@@ -3,28 +3,28 @@
 	url = git@github.com:junegunn/fzf.vim.git
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
-	url = git://github.com/tpope/vim-surround.git
+	url = git@github.com:tpope/vim-surround.git
 [submodule "vim/bundle/undotree"]
 	path = vim/bundle/undotree
-	url = git://github.com/mbbill/undotree.git
+	url = git@github.com:mbbill/undotree.git
 [submodule "vim/bundle/vim-commentary"]
 	path = vim/bundle/vim-commentary
-	url = git://github.com/tpope/vim-commentary.git
+	url = git@github.com:tpope/vim-commentary.git
 [submodule "vim/bundle/vim-visual-page-percent"]
 	path = vim/bundle/vim-visual-page-percent
-	url = git://github.com/naddeoa/vim-visual-page-percent.git
+	url = git@github.com:naddeoa/vim-visual-page-percent.git
 [submodule "vim/bundle/replacewithregister"]
 	path = vim/bundle/replacewithregister
-	url = git://github.com/vim-scripts/ReplaceWithRegister.git
+	url = git@github.com:vim-scripts/ReplaceWithRegister.git
 [submodule "vim/bundle/vim-ingo-library"]
 	path = vim/bundle/vim-ingo-library
 	url = https://github.com/inkarkat/vim-ingo-library
 [submodule "vim/bundle/vim-EnhancedJumps"]
 	path = vim/bundle/vim-EnhancedJumps
-	url = git://github.com/inkarkat/vim-EnhancedJumps.git
+	url = git@github.com:inkarkat/vim-EnhancedJumps.git
 [submodule "vim/bundle/vim-go"]
 	path = vim/bundle/vim-go
-	url = git://github.com/fatih/vim-go.git
+	url = git@github.com:fatih/vim-go.git
 [submodule "vim/bundle/vim-repeat"]
 	path = vim/bundle/vim-repeat
-	url = git://github.com/tpope/vim-repeat.git
+	url = git@github.com:tpope/vim-repeat.git
