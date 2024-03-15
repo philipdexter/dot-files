@@ -37,3 +37,6 @@
 [submodule "vim/bundle/vim-rhubarb"]
 	path = vim/bundle/vim-rhubarb
 	url = git@github.com:tpope/vim-rhubarb
+[submodule "vim/bundle/vim-unimpaired"]
+	path = vim/bundle/vim-unimpaired
+	url = git@github.com:tpope/vim-unimpaired
