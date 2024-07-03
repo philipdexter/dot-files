@@ -85,7 +85,7 @@ alias igrep="grep -i"
 alias ifind="find . | grep -i "
 alias ips="ps aux | grep -i"
 alias cal="cal -3m"
-alias cat="bat"
+alias cat="bat --theme=1337"
 alias m="mold"
 
 export EDITOR="vim"
@@ -428,3 +428,21 @@ alias -g LC="| lolcat"
 export LESS="-i -FRX"
 
 export FZF_DEFAULT_OPTS='--bind ctrl-j:next-history,ctrl-k:previous-history,ctrl-n:down,ctrl-p:up'
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+alias psh="poetry shell"
+
+function z {
+    if [ "$1" = "rapi" ] ; then
+        p ~/p/restaurant-api
+    elif [ "$1" = "ot" ] ; then
+        p ~/p/order-tracking
+    elif [ "$1" = "cg" ] ; then
+        p ~/p/consumer-gateway
+    else
+        p ~/p/"$1"
+    fi
+}
+compdef '_files -W ~/p' z
