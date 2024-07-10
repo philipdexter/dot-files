@@ -1,3 +1,4 @@
+if [ "$TMUX" = "" ]; then tmux; fi
 HISTFILE=~/.histfile
 HISTSIZE=2000000
 SAVEHIST=2000000
