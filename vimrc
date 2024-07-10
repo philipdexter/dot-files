@@ -211,3 +211,27 @@ let g:jedi#use_splits_not_buffers = "winwidth"
 let g:jedi#show_call_signatures = "1"
 
 execute pathogen#infect()
+
+let s:plugin_root_dir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+
+python3 << EOF
+import sys
+from os.path import normpath, join
+import vim
+plugin_root_dir = vim.eval('s:plugin_root_dir')
+python_root_dir = normpath(join(plugin_root_dir, '..', 'python'))
+sys.path.insert(0, plugin_root_dir)
+import sample
+EOF
+function! Nifs()
+    python3 sample.populate_notifications()
+endfunction
+nnoremap <Leader>n :call Nifs()<CR>
+function! NifsMarkDone()
+    python3 sample.v_mark_done()
+endfunction
+nnoremap <Leader>ND :call NifsMarkDone()<CR>
+function! NifsFetchDiff()
+    python3 sample.v_fetch_diff()
+endfunction
+nnoremap <Leader>NP :call NifsFetchDiff()<CR>
