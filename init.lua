@@ -1,33 +1,5 @@
 -- tiling
 
-hs.grid.setGrid(hs.geometry.size(2,1))
-
-hs.hotkey.bind({"alt", "ctrl"}, "f", function()
-    window = hs.window.focusedWindow()
-    hs.grid.maximizeWindow(window)
-end)
-
-hs.hotkey.bind({"alt", "ctrl"}, "s", function()
-    window = hs.window.focusedWindow()
-    hs.grid.snap(window)
-end)
-
-hs.hotkey.bind({"alt", "ctrl"}, "h", function()
-    window = hs.window.focusedWindow()
-    if window:size().w > 1000 then
-        hs.grid.resizeWindowThinner(window)
-    end
-    hs.grid.pushWindowLeft(window)
-end)
-
-hs.hotkey.bind({"alt", "ctrl"}, "l", function()
-    window = hs.window.focusedWindow()
-    if window:size().w > 1000 then
-        hs.grid.resizeWindowThinner(window)
-    end
-    hs.grid.pushWindowRight(window)
-end)
-
 hs.hotkey.bind({"cmd", "ctrl"}, "h", function()
     window = hs.window.focusedWindow()
     window:focusWindowWest()
@@ -38,6 +10,18 @@ hs.hotkey.bind({"cmd", "ctrl"}, "l", function()
     window = hs.window.focusedWindow()
     window:focusWindowEast()
 end)
+
+hs.hotkey.bind({"cmd", "ctrl"}, "k", function()
+    window = hs.window.focusedWindow()
+    window:focusWindowNorth()
+end)
+
+
+hs.hotkey.bind({"cmd", "ctrl"}, "j", function()
+    window = hs.window.focusedWindow()
+    window:focusWindowSouth()
+end)
+
 
 -- app switching
 
