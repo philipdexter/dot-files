@@ -231,7 +231,26 @@ function! NifsMarkDone()
     python3 sample.v_mark_done()
 endfunction
 nnoremap <Leader>ND :call NifsMarkDone()<CR>
+vnoremap <Leader>ND :call NifsMarkDone()<CR>
+function! NifsUnsubscribe()
+    python3 sample.v_unsubscribe()
+endfunction
+nnoremap <Leader>NU :call NifsUnsubscribe()<CR>
+vnoremap <Leader>NU :call NifsUnsubscribe()<CR>
 function! NifsFetchDiff()
     python3 sample.v_fetch_diff()
 endfunction
 nnoremap <Leader>NP :call NifsFetchDiff()<CR>
+function! NifsFetchPR()
+    python3 sample.v_fetch_pr()
+endfunction
+nnoremap <Leader>NR :call NifsFetchPR()<CR>
+function! NifsFetchIssue()
+    python3 sample.v_fetch_issue()
+endfunction
+nnoremap <Leader>NI :call NifsFetchIssue()<CR>
+function! EndOpenBrowser()
+    normal Lgx0
+endfunction
+nnoremap <Leader>NB :call EndOpenBrowser()<CR>
+vnoremap <Leader>NB :call EndOpenBrowser()<CR>
