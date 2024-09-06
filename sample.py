@@ -42,6 +42,7 @@ def populate_notifications():
     del vim.current.buffer[0]
     vim.command('setlocal buftype=nofile')
     vim.command('file gh notifications')
+    vim.command('silent %!sort -k3 -t')
     vim.command('silent %!column -t -s')
 
 def v_mark_done():

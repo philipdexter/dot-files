@@ -226,31 +226,31 @@ EOF
 function! Nifs()
     python3 sample.populate_notifications()
 endfunction
-nnoremap <Leader>n :call Nifs()<CR>
+nnoremap <Leader>ng :call Nifs()<CR>
 function! NifsMarkDone()
     python3 sample.v_mark_done()
 endfunction
-nnoremap <Leader>ND :call NifsMarkDone()<CR>
-vnoremap <Leader>ND :call NifsMarkDone()<CR>
+nnoremap <Leader>nd :call NifsMarkDone()<CR>
+vnoremap <Leader>nd :call NifsMarkDone()<CR>
 function! NifsUnsubscribe()
     python3 sample.v_unsubscribe()
 endfunction
-nnoremap <Leader>NU :call NifsUnsubscribe()<CR>
-vnoremap <Leader>NU :call NifsUnsubscribe()<CR>
+nnoremap <Leader>nu :call NifsUnsubscribe()<CR>
+vnoremap <Leader>nu :call NifsUnsubscribe()<CR>
 function! NifsFetchDiff()
     python3 sample.v_fetch_diff()
 endfunction
-nnoremap <Leader>NP :call NifsFetchDiff()<CR>
+nnoremap <Leader>np :call NifsFetchDiff()<CR>
 function! NifsFetchPR()
     python3 sample.v_fetch_pr()
 endfunction
-nnoremap <Leader>NR :call NifsFetchPR()<CR>
+nnoremap <Leader>nr :call NifsFetchPR()<CR>
 function! NifsFetchIssue()
     python3 sample.v_fetch_issue()
 endfunction
-nnoremap <Leader>NI :call NifsFetchIssue()<CR>
+nnoremap <Leader>ni :call NifsFetchIssue()<CR>
 function! EndOpenBrowser()
     normal Lgx0
 endfunction
-nnoremap <Leader>NB :call EndOpenBrowser()<CR>
-vnoremap <Leader>NB :call EndOpenBrowser()<CR>
+nnoremap <Leader>nb :call EndOpenBrowser()<CR>
+vnoremap <Leader>nb :call EndOpenBrowser()<CR>
