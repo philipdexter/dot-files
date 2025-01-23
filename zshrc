@@ -442,6 +442,8 @@ function z {
         p ~/p/order-tracking
     elif [ "$1" = "cg" ] ; then
         p ~/p/consumer-gateway
+    elif [ "$1" = "ggp" ] ; then
+        p ~/p/google-geo-proxy
     else
         p ~/p/"$1"
     fi

@@ -1,32 +1,8 @@
--- tiling
-
-hs.hotkey.bind({"cmd", "ctrl"}, "h", function()
-    window = hs.window.focusedWindow()
-    window:focusWindowWest()
-end)
-
-
-hs.hotkey.bind({"cmd", "ctrl"}, "l", function()
-    window = hs.window.focusedWindow()
-    window:focusWindowEast()
-end)
-
-hs.hotkey.bind({"cmd", "ctrl"}, "k", function()
-    window = hs.window.focusedWindow()
-    window:focusWindowNorth()
-end)
-
-
-hs.hotkey.bind({"cmd", "ctrl"}, "j", function()
-    window = hs.window.focusedWindow()
-    window:focusWindowSouth()
-end)
-
 
 -- app switching
 
 hs.hotkey.bind({"cmd", "shift"}, "v", function()
-  hs.application.launchOrFocus("Things3")
+  hs.application.launchOrFocus("Mail")
 end)
 
 hs.hotkey.bind({"cmd", "shift"}, "f", function()
@@ -42,7 +18,7 @@ hs.hotkey.bind({"cmd", "shift"}, "r", function()
 end)
 
 hs.hotkey.bind({"cmd", "shift"}, "c", function()
-  hs.application.launchOrFocus("iTerm")
+  hs.application.launchOrFocus("Calendar")
 end)
 
 
@@ -53,7 +29,7 @@ hs.hotkey.bind({"cmd", "shift"}, "i", function()
       tell account "iCloud"
           tell folder "Wolt"
             tell folder "1:1"
-              show folder "]] .. folder .. [["
+              show note "]] .. folder .. [["
             end tell
           end tell
       end tell
@@ -74,8 +50,7 @@ hs.hotkey.bind({"cmd", "shift"}, "o", function()
       tell account "iCloud"
           tell folder "Wolt"
             tell folder "1:1"
-              show folder "]] .. folder .. [["
-              open note 1
+              show note "]] .. folder .. [["
             end tell
           end tell
       end tell
@@ -84,6 +59,9 @@ hs.hotkey.bind({"cmd", "shift"}, "o", function()
   hs.application.launchOrFocus("Notes")
 end)
 
+hs.hotkey.bind({"option", "control"}, "d", function()
+  hs.application.frontmostApplication():selectMenuItem({"Window", "Full Screen Tile", "Left of Screen"})
+end)
 
 hs.hotkey.bind({"cmd", "shift"}, "return", function()
   if hs.application.find("iTerm") then
@@ -95,6 +73,19 @@ hs.hotkey.bind({"cmd", "shift"}, "return", function()
     hs.application.launchOrFocus("iTerm")
   else
     hs.application.open("iTerm")
+  end
+end)
+
+hs.hotkey.bind({"cmd"}, "return", function()
+  if hs.application.find("chrome") then
+    hs.applescript.applescript([[
+      tell application "chrome"
+        make new window
+        activate
+      end tell
+    ]])
+  else
+    hs.application.open("chrome")
   end
 end)
 
