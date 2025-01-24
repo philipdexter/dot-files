@@ -63,6 +63,10 @@ hs.hotkey.bind({"option", "control"}, "d", function()
   hs.application.frontmostApplication():selectMenuItem({"Window", "Full Screen Tile", "Left of Screen"})
 end)
 
+hs.hotkey.bind({"cmd", "shift"}, "space", function()
+  hs.application.frontmostApplication():selectMenuItem({"Window", "Move & Resize", "Left & Right"})
+end)
+
 hs.hotkey.bind({"cmd", "shift"}, "return", function()
   if hs.application.find("iTerm") then
     hs.applescript.applescript([[
@@ -94,3 +98,5 @@ hs.hotkey.bind({"cmd"}, "\\", function()
   hs.eventtap.keyStroke({"cmd", "shift"}, "h")
   hs.eventtap.keyStrokes(date)
 end)
+
+require('./window'):init()
