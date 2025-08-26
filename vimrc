@@ -102,6 +102,8 @@ nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
 
+" spelllang
+set spelllang=en_us
 " spell
 nnoremap z] ]s
 nnoremap z[ [s
@@ -174,7 +176,9 @@ endfunction
 :command InsertYMDTime :call InsertYMDTime()
 nnoremap <Leader>D :InsertYMDTime<CR>
 function InsertHeadingYMDTime()
+  normal O
   :py3 import vim ; import datetime ; vim.current.line += '# ' + datetime.datetime.now().strftime("%Y-%m-%d")
+  normal j
 endfunction
 :command InsertHeadingYMDTime :call InsertHeadingYMDTime()
 nnoremap <Leader>H :InsertHeadingYMDTime<CR>

@@ -449,3 +449,62 @@ function z {
     fi
 }
 compdef '_files -W ~/p' z
+
+function zs {
+    folder="$1"
+    if [ "$folder" = "rapi" ] ; then
+        folder="restaurant-api"
+    elif [ "$folder" = "cg" ] ; then
+        folder="consumer-gateway"
+    elif [ "$folder" = "ot" ] ; then
+        folder="order-tracking"
+    fi
+    p ~/p/steiger/apps/"$folder"
+}
+compdef '_files -W ~/p/steiger/apps' zs
+
+# Notes
+#
+function mdify {
+    filename="$1"
+    [[ "$filename" != *.md ]] && filename="$filename".md
+    echo "$filename"
+}
+
+function n {
+    p ~/notes
+    if [ "$1" != "" ] ; then
+        v ~/notes/"$(mdify $1)"
+    fi
+}
+compdef '_files -W ~/notes' n
+
+function an {
+    file="$(mdify $1)"
+    shift
+    rest="$@"
+    sed -i '' "1s/^/NOTE $(date "+%b %-d %H:%M") $rest\n/" ~/notes/"$file"
+}
+compdef '_files -W ~/notes' an
+
+# Interviews
+#
+function ni {
+    p ~/notes/interviews
+    if [ "$1" != "" ] ; then
+        v ~/notes/interviews/"$(mdify $1)"
+    fi
+}
+compdef '_files -W ~/notes/interviews' ni
+
+function nii {
+    p ~/notes/interviews
+    if [ "$1" != "" ] ; then
+        cp template.md "$1".md
+        v ~/notes/interviews/"$1".md
+    fi
+}
+
+alias ghn="gh notify"
+alias perltime="perl -pe 's/^/localtime . \" \"/e'"
+
